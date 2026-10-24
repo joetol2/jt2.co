@@ -1,5 +1,6 @@
 import PageNav from "@/components/PageNav";
 import Footer from "@/components/Footer";
+import ReviewSection from "@/components/ReviewSection";
 import ProjectCard from "@/components/ProjectCard";
 import { Section } from "@/components/Section";
 import { projects } from "@/data/projects";
@@ -23,6 +24,8 @@ const Work = () => (
         ))}
       </div>
     </Section>
+    <ReviewSection />
+
     <Footer />
   </main>
 );

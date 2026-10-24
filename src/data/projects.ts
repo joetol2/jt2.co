@@ -46,3 +46,20 @@ export const projects: Project[] = [
     image: "/work/swarm.png",
   },
 ];
+
+// Older fizx soft-body pages from sim2real, listed at the bottom of the home
+// and work pages for review before they join the main list.
+export const reviewProjects = [
+  {
+    slug: "soft-body",
+    title: "Soft-Body Physics",
+    tagline: "The original fizx soft-body demo",
+    dir: "fizx",
+  },
+  {
+    slug: "soft-body-zero-g",
+    title: "Soft-Body Zero-G",
+    tagline: "The first zero-gravity scene, built on fizx",
+    dir: "fizx2",
+  },
+];

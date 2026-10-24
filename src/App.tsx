@@ -7,6 +7,7 @@ import Starfield from "./pages/Starfield.tsx";
 import Physics from "./pages/Physics.tsx";
 import Blocks from "./pages/Blocks.tsx";
 import Swarm from "./pages/Swarm.tsx";
+import Review from "./pages/Review.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
@@ -20,6 +21,7 @@ const App = () => (
       <Route path="/work/physics" element={<Physics />} />
       <Route path="/work/blocks" element={<Blocks />} />
       <Route path="/work/swarm" element={<Swarm />} />
+      <Route path="/review/:slug" element={<Review />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       {/* Short links matching the sim2real sandbox URLs */}

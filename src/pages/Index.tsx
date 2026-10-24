@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PageNav from "@/components/PageNav";
 import Footer from "@/components/Footer";
+import ReviewSection from "@/components/ReviewSection";
 import SpeedField, { DEFAULTS } from "@/components/SpeedField";
 import ProjectCard from "@/components/ProjectCard";
 import { Section, Label, Heading, Body, primaryButton, secondaryButton } from "@/components/Section";
@@ -81,6 +82,8 @@ const Index = () => (
         </Link>
       </div>
     </Section>
+
+    <ReviewSection />
 
     <Footer />
   </main>

@@ -12,7 +12,8 @@ const About = () => (
         Hi, I'm JT.
       </h1>
       <p className="animate-fade-up-delay-2 text-lg text-white/80 leading-relaxed max-w-2xl">
-        I build interactive things for the web, with a soft spot for anything that animates, simulates or can be played.
+        Thank you for checking out my site. I am currently away on leave, traveling through time and space and will be
+        returning last week.
       </p>
     </div>
 
