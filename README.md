@@ -20,5 +20,6 @@ npm run dev
 npm run build
 ```
 
-Pushes to `main` deploy to GitHub Pages via `.github/workflows/static.yml`.
-`public/CNAME` points the site at jt2.co.
+Pushes to `main` deploy to https://joetol2.github.io/jt2.co/ via
+`.github/workflows/static.yml`. The site is built with `base: "/jt2.co/"`
+(see `vite.config.ts`); `main` is the only branch.

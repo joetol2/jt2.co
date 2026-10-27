@@ -16,7 +16,7 @@ export const projects: Project[] = [
     description:
       "A perspective-projected starfield drawn with streaked line segments and translucent clears for motion trails. The vanishing point eases toward the pointer, touch steers on mobile, and every parameter is live on a slider.",
     tags: ["Canvas 2D", "3D projection", "Pointer input"],
-    image: "/work/starfield.png",
+    image: `${import.meta.env.BASE_URL}work/starfield.png`,
   },
   {
     slug: "physics",
@@ -25,7 +25,7 @@ export const projects: Project[] = [
     description:
       "A hand-rolled rigid-body sandbox: circles, squares and triangles drifting in zero gravity with sub-stepped integration and soft collisions. Grab anything and fling it, or hit the Artron Inhibitor to switch gravity on.",
     tags: ["Canvas 2D", "Physics", "Collision response"],
-    image: "/work/physics.png",
+    image: `${import.meta.env.BASE_URL}work/physics.png`,
   },
   {
     slug: "blocks",
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     description:
       "A complete falling-blocks game: 7-bag randomizer, SRS rotation with wall kicks, ghost piece, hold, lock delay and levels. Plays with the keyboard or with touch gestures and on-screen pads on phones.",
     tags: ["Canvas 2D", "Game loop", "Touch controls"],
-    image: "/work/blocks.png",
+    image: `${import.meta.env.BASE_URL}work/blocks.png`,
   },
   {
     slug: "swarm",
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     description:
       "Enemies fly in on curved paths, settle into a breathing formation and peel off to dive. Bosses take two hits and can capture your ship with a tractor beam; rescue it for double fire. Rendered at arcade resolution and scaled up crisply.",
     tags: ["Canvas 2D", "Path animation", "Arcade"],
-    image: "/work/swarm.png",
+    image: `${import.meta.env.BASE_URL}work/swarm.png`,
   },
 ];
 

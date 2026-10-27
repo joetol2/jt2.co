@@ -30,7 +30,7 @@
           }, {});
           window.history.replaceState(
             null, null,
-            '/' + (params.p ? params.p : '') +
+            '%BASE_URL%' + (params.p ? params.p : '') +
             (params.q ? '?' + params.q : '') +
             l.hash
           );

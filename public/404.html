@@ -4,10 +4,15 @@
     <meta charset="UTF-8" />
     <title>JT2</title>
     <script>
+      // GitHub Pages serves this for any unknown path. Send it to the app's
+      // index with the path in ?p= so the router can restore it. The first
+      // path segment is the project site's base (/jt2.co/) and is kept.
+      var pathSegmentsToKeep = 1;
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        '/?p=' + l.pathname.slice(1).replace(/&/g, '~and~') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?p=' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
         (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
         l.hash
       );

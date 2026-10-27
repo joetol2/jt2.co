@@ -4,7 +4,8 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/",
+  // Served as a GitHub Pages project site at https://joetol2.github.io/jt2.co/
+  base: "/jt2.co/",
   server: {
     host: "::",
     port: 8080,

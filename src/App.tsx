@@ -12,7 +12,7 @@ import NotFound from "./pages/NotFound.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
 const App = () => (
-  <BrowserRouter basename="/">
+  <BrowserRouter basename={import.meta.env.BASE_URL}>
     <ScrollToTop />
     <Routes>
       <Route path="/" element={<Index />} />
