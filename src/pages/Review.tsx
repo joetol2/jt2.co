@@ -32,8 +32,8 @@ const Review = () => {
               >
                 Reset
               </button>
-              <Link to="/work" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-300">
-                All work
+              <Link to="/lab" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-300">
+                Back to the lab
               </Link>
             </div>
           </div>

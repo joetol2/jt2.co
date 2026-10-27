@@ -34,14 +34,14 @@ const ProjectLayout = ({ slug, children }: { slug: string; children: React.React
             </div>
           </div>
           <div className="flex flex-col gap-4 md:items-end md:justify-end">
-            <Link to={`/work/${prev.slug}`} className="text-xs font-heading tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300">
+            <Link to={`/lab/${prev.slug}`} className="text-xs font-heading tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300">
               ← {prev.title}
             </Link>
-            <Link to={`/work/${next.slug}`} className="text-xs font-heading tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300">
+            <Link to={`/lab/${next.slug}`} className="text-xs font-heading tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300">
               {next.title} →
             </Link>
-            <Link to="/work" className="text-xs font-heading tracking-[0.2em] uppercase text-foreground hover:opacity-70 transition-opacity">
-              All work
+            <Link to="/lab" className="text-xs font-heading tracking-[0.2em] uppercase text-foreground hover:opacity-70 transition-opacity">
+              Back to the lab
             </Link>
           </div>
         </div>

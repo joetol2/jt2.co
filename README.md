@@ -1,16 +1,18 @@
 # jt2.co
 
-Portfolio site featuring interactive canvas pieces. Layout and styles are shared
-with the [sim2real](https://github.com/joetol2/sim2real) site (Vite, React, Tailwind).
+Joe Tolerico's personal site. Layout and styles are shared with the
+[sim2real](https://github.com/joetol2/sim2real) site (Vite, React, Tailwind).
 
 ## Pages
 
-- `/` home: starfield hero and selected work
-- `/work`: all projects
-- `/work/starfield`, `/work/physics`, `/work/blocks`, `/work/swarm`: the canvas pieces
+- `/` home: hero, career timeline, selected work, lab, recognition
+- `/work` and `/work/:slug`: case studies
+- `/lab`: the canvas pieces (`/lab/starfield`, `/lab/physics`, `/lab/blocks`, `/lab/swarm`) and older pages for review
 - `/about`, `/contact`
 
-Projects are listed in `src/data/projects.ts`; card screenshots live in `public/work/`.
+Site copy lives in `src/data/content.ts`; canvas pieces are listed in
+`src/data/projects.ts`. Robot frames in `public/media/` come from the sim2real
+videos.
 
 ## Develop
 

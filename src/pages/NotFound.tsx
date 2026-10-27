@@ -7,7 +7,7 @@ const NotFound = () => (
     <PageNav />
     <div className="flex-1 flex flex-col items-center justify-center text-center px-8">
       <p className="text-6xl font-heading font-semibold mb-4">404</p>
-      <p className="text-white/70 mb-8">This page drifted out of the field.</p>
+      <p className="text-white/70 mb-8">This page slipped into another timeline.</p>
       <Link to="/" className={primaryButton}>
         Back home
       </Link>

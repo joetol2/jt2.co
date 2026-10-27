@@ -12,7 +12,7 @@ const ReviewSection = () => (
       {reviewProjects.map((p) => (
         <Link
           key={p.slug}
-          to={`/review/${p.slug}`}
+          to={`/lab/review/${p.slug}`}
           className="group block border border-dashed border-white/20 rounded-lg p-6 hover:border-white/40 transition-colors duration-300"
         >
           <h3 className="text-base font-heading font-semibold text-foreground mb-2 flex items-center gap-2">

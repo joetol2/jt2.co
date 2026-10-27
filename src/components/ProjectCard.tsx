@@ -3,7 +3,7 @@ import type { Project } from "@/data/projects";
 
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => (
   <Link
-    to={`/work/${project.slug}`}
+    to={`/lab/${project.slug}`}
     className="group block border border-white/10 rounded-lg overflow-hidden hover:border-white/30 transition-colors duration-300"
   >
     <div className="aspect-[16/10] overflow-hidden bg-[#05060a]">

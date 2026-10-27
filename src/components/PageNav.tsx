@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 export const navLinks = [
   { to: "/work", label: "Work" },
+  { to: "/lab", label: "Lab" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
@@ -17,7 +18,7 @@ const PageNav = () => {
           to="/"
           className="text-sm font-heading tracking-[0.25em] uppercase text-foreground font-semibold hover:opacity-70 transition-opacity"
         >
-          JT2
+          Joe Tolerico
         </Link>
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
