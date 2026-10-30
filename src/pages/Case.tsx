@@ -1,7 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import PageNav from "@/components/PageNav";
 import Footer from "@/components/Footer";
-import VideoEmbed from "@/components/VideoEmbed";
+import VideoEmbed, { vimeoPoster } from "@/components/VideoEmbed";
+import VideoPlayer from "@/components/VideoPlayer";
 import { Section, Label, primaryButton } from "@/components/Section";
 import NotFound from "@/pages/NotFound";
 import { caseStudies, CONTACT_EMAIL } from "@/data/content";
@@ -83,6 +84,17 @@ const Case = () => {
           </aside>
         </div>
       </Section>
+
+      {study.reel?.map((group) => (
+        <Section key={group.title}>
+          <Label>{group.title}</Label>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {group.videos.map((v) => (
+              <VideoPlayer key={v.id} id={v.id} title={v.title} poster={vimeoPoster(v.id)} />
+            ))}
+          </div>
+        </Section>
+      ))}
 
       {study.gallery && (
         <Section>

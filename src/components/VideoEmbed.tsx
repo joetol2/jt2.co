@@ -1,11 +1,11 @@
 import type { Video } from "@/data/content";
+import VideoPlayer from "@/components/VideoPlayer";
+
+// Posters are saved from Vimeo into public/media/vimeo/<id>.jpg.
+export const vimeoPoster = (id: string) => `${import.meta.env.BASE_URL}media/vimeo/${id}.jpg`;
 
 const src = (v: Video) => {
   switch (v.kind) {
-    case "vimeo":
-      return `https://player.vimeo.com/video/${v.id}?dnt=1&title=0&byline=0&portrait=0`;
-    case "vimeo-album":
-      return `https://vimeo.com/album/${v.id}/embed`;
     case "youtube":
       return `https://www.youtube-nocookie.com/embed/${v.id}?rel=0`;
     default:
@@ -13,7 +13,10 @@ const src = (v: Video) => {
   }
 };
 
-const VideoEmbed = ({ video }: { video: Video }) => (
+const VideoEmbed = ({ video }: { video: Video }) =>
+  video.kind === "vimeo" ? (
+    <VideoPlayer id={video.id} title={video.title} poster={vimeoPoster(video.id)} />
+  ) : (
   <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-black">
     {video.kind === "file" ? (
       <video
@@ -37,6 +40,6 @@ const VideoEmbed = ({ video }: { video: Video }) => (
       />
     )}
   </div>
-);
+  );
 
 export default VideoEmbed;

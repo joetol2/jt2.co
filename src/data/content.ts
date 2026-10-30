@@ -8,7 +8,6 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/jtol2";
 
 export type Video =
   | { kind: "vimeo"; id: string; title: string }
-  | { kind: "vimeo-album"; id: string; title: string }
   | { kind: "youtube"; id: string; title: string }
   | { kind: "file"; src: string; poster?: string; title: string };
 
@@ -24,6 +23,8 @@ export type CaseStudy = {
   stat?: { value: string; label: string };
   image?: string;
   videos?: Video[];
+  // More Vimeo videos, shown in a grid under the write-up.
+  reel?: { title: string; videos: { id: string; title: string }[] }[];
   gallery?: { src: string; alt: string }[];
   links?: { label: string; href: string }[];
 };
@@ -65,6 +66,16 @@ export const caseStudies: CaseStudy[] = [
     ],
     image: media("tycho-socks.jpg"),
     videos: [{ kind: "file", src: media("robot-multishot.mp4"), poster: media("robot-multishot.jpg"), title: "Sim2Real" }],
+    reel: [
+      {
+        title: "Tycho-1",
+        videos: [
+          { id: "1081919240", title: "Tycho-1 development reel" },
+          { id: "1081907352", title: "Tycho-1 promo 1" },
+          { id: "1081906951", title: "Tycho-1 promo 2" },
+        ],
+      },
+    ],
     gallery: [
       { src: media("tycho-socks.jpg"), alt: "Two robot arms sorting socks on a workbench" },
       { src: media("cube-stack.jpg"), alt: "Simulated robot arm stacking cubes" },
@@ -101,6 +112,24 @@ export const caseStudies: CaseStudy[] = [
       "I was Product Owner and lead product manager for FNGENIUS, a weekly live interactive game show delivered to FOX fans through direct-to-consumer apps, with real-time trivia played alongside FOX programming. Before that I ran social media and then video products at FOX Broadcasting, including the MPX video publishing workflows.",
     ],
     stat: { value: "$25M", label: "first 18 months" },
+    videos: [{ kind: "vimeo", id: "216764413", title: "Advanced ad products sizzle" }],
+    reel: [
+      {
+        title: "FOX and FX ad products",
+        videos: [
+          { id: "218024087", title: "FX Originals ad model" },
+          { id: "216764489", title: "FX NOW true[X] choice card: Taboo" },
+          { id: "216764725", title: "true[X] menu experience" },
+          { id: "216764658", title: "true[X] menu experience, alternate" },
+          { id: "216764914", title: "Trident sponsored collection" },
+          { id: "216765237", title: "Roku: It's Always Sunny in Philadelphia" },
+          { id: "216764993", title: "Roku: Archer" },
+          { id: "229634812", title: "The Strain sponsored spot" },
+          { id: "218086375", title: "The Americans, with theme song" },
+          { id: "218085944", title: "The Americans, theme and voiceover" },
+        ],
+      },
+    ],
     links: [
       { label: "Forbes on FNGENIUS", href: "https://bit.ly/2Cv63ZT" },
       { label: "Deadline on FNGENIUS", href: "https://bit.ly/2O2zNPb" },
@@ -134,7 +163,29 @@ export const caseStudies: CaseStudy[] = [
       "The Heroes Digital Experience won the Primetime Emmy for Outstanding Interactive Television Programming. Related work won PromaxBDA awards for Create Your Hero and a TV Guide Digital Video Award for Heroes Evolutions.",
     ],
     stat: { value: "Emmy", label: "Outstanding Interactive TV" },
-    videos: [{ kind: "vimeo", id: "80954249", title: "Heroes digital experience" }],
+    videos: [{ kind: "vimeo", id: "80954249", title: "Heroes Digital Experience" }],
+    reel: [
+      {
+        title: "Comic-Con and social",
+        videos: [
+          { id: "81574626", title: "Heroes 360 at Comic-Con" },
+          { id: "81572651", title: "Claire profile" },
+          { id: "81572267", title: "Sylar profile" },
+          { id: "81573152", title: "Viral recap" },
+          { id: "81573349", title: "Pinehearst Research in-universe commercial" },
+          { id: "81573816", title: "Lydia's Story extended scene" },
+          { id: "81051159", title: "One Laptop Per Child PSA" },
+        ],
+      },
+      {
+        title: "Tim Kring on Heroes",
+        videos: [
+          { id: "81568630", title: "What's the inspiration for Heroes?" },
+          { id: "81570956", title: "Which ability would you want?" },
+          { id: "81060621", title: "What's next for Heroes?" },
+        ],
+      },
+    ],
     links: [
       { label: "Heroes graphic novels", href: "https://heroes.fandom.com/wiki/Graphic_Novels" },
       { label: "TV Guide: Heroes' new ways", href: "https://www.tvguide.com/news/heroes-new-ways-13108/" },
@@ -150,10 +201,38 @@ export const caseStudies: CaseStudy[] = [
       "Brokered a $4.3M linear and digital sponsor integration for Deal or No Deal and led the digital experience.",
     body: [
       "I brokered a $4.3M sponsor integration for Deal or No Deal that ran across the broadcast, the show's website and its second-screen experience, then led execution of the digital side so the brand's message worked in each place.",
-      "The show's second-screen play continued with the Lucky Case Game, which let viewers play along at home while the episode aired.",
+      "The show's second-screen play continued with the Lucky Case Game, which let viewers play along at home while the episode aired. I also led the digital experience for Minute to Win It.",
     ],
     stat: { value: "$4.3M", label: "sponsor integration" },
-    videos: [{ kind: "vimeo-album", id: "2625842", title: "Deal or No Deal sponsorship" }],
+    videos: [{ kind: "vimeo", id: "81668410", title: "Deal or No Deal digital experience" }],
+    reel: [{ title: "Another game show", videos: [{ id: "81035999", title: "Minute to Win It digital experience" }] }],
+  },
+  {
+    slug: "nbc-dramas",
+    title: "Digital worlds for Grimm and Kings",
+    org: "NBCUniversal",
+    years: "2006 to 2014",
+    role: "Senior Producer",
+    summary: "Digital experiences and social video that gave fans of Grimm and Kings more of the story between episodes.",
+    body: [
+      "For Grimm I led the digital experience and a run of social video: creature transformations, character profiles and fan recaps made for sharing. The work carried on into Grimm: The Essential Guide, companion eBooks for the first two seasons.",
+      "For Kings, NBC's modern retelling of the story of David, I led the digital experience that extended the show's world online.",
+    ],
+    stat: { value: "Grimm", label: "and Kings" },
+    videos: [{ kind: "vimeo", id: "80960525", title: "Grimm digital experience" }],
+    reel: [
+      {
+        title: "Grimm social video",
+        videos: [
+          { id: "81648000", title: "Blutbad transformations" },
+          { id: "81648003", title: "Hexenbiest transformations" },
+          { id: "81571282", title: "Monroe profile" },
+          { id: "81060619", title: "Fan recap" },
+          { id: "80945001", title: "Social marketing, part 1" },
+        ],
+      },
+      { title: "Kings", videos: [{ id: "81574924", title: "Kings digital experience" }] },
+    ],
   },
   {
     slug: "original-series",
@@ -169,7 +248,32 @@ export const caseStudies: CaseStudy[] = [
       "I was also lead producer of Grimm: The Essential Guide, companion eBooks for Seasons 1 and 2.",
     ],
     stat: { value: "30+", label: "original digital series" },
-    videos: [{ kind: "vimeo", id: "81060620", title: "Gemini Division" }],
+    videos: [{ kind: "vimeo", id: "81060620", title: "Gemini Division digital experience" }],
+    reel: [
+      {
+        title: "Web series trailers",
+        videos: [
+          { id: "81669549", title: "Heroes: The Recruit" },
+          { id: "81575490", title: "Heroes: Nowhere Man" },
+          { id: "81057134", title: "Heroes: Going Postal" },
+          { id: "81574378", title: "Heroes: Lydia's Story" },
+          { id: "81571770", title: "Heroes: Create Your Hero" },
+        ],
+      },
+      {
+        title: "Animated novels",
+        videos: [
+          { id: "81579245", title: "Black Bear" },
+          { id: "81579246", title: "Flying Blind" },
+          { id: "81579249", title: "A Lesson in Electricity" },
+          { id: "81579247", title: "Molly's Dream" },
+          { id: "81579248", title: "Plot Discovered, part 1" },
+          { id: "81580616", title: "Plot Discovered, part 2" },
+          { id: "81581725", title: "War Buddies" },
+          { id: "81581726", title: "Ten Brides" },
+        ],
+      },
+    ],
     links: [{ label: "Grimm: The Essential Guide", href: "http://a.co/bYdklrD" }],
   },
   {
@@ -282,6 +386,7 @@ export const press = [
   { label: "Deadline", href: "https://bit.ly/2O2zNPb" },
   { label: "Wired", href: "https://www.wired.com/2003/08/its-a-flawed-world-after-all/" },
   { label: "TV Guide", href: "https://www.tvguide.com/news/heroes-new-ways-13108/" },
+  { label: "Heroes Wiki interview", href: "https://heroeswiki.ddns.net/wiki/Interview:Joe_Tolerico" },
   { label: "IMDb", href: "http://www.imdb.com/name/nm3089230" },
 ];
 
