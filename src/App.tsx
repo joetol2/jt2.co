@@ -9,6 +9,7 @@ import Starfield from "./pages/Starfield.tsx";
 import Physics from "./pages/Physics.tsx";
 import Blocks from "./pages/Blocks.tsx";
 import Swarm from "./pages/Swarm.tsx";
+import MuscleArm from "./pages/MuscleArm.tsx";
 import Review from "./pages/Review.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
@@ -28,6 +29,7 @@ const App = () => (
       <Route path="/lab/physics" element={<Physics />} />
       <Route path="/lab/blocks" element={<Blocks />} />
       <Route path="/lab/swarm" element={<Swarm />} />
+      <Route path="/lab/muscle-arm" element={<MuscleArm />} />
       <Route path="/lab/review/:slug" element={<Review />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />

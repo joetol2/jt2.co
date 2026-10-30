@@ -143,10 +143,13 @@ const Index = () => {
           </Body>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {projects.map((p, i) => (
+          {projects.slice(0, 4).map((p, i) => (
             <ProjectCard key={p.slug} project={p} index={i} />
           ))}
         </div>
+        <Link to="/lab" className={`${secondaryButton} mt-10`}>
+          Everything in the lab
+        </Link>
       </Section>
 
       <Section dark>

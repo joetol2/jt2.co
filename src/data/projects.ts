@@ -5,6 +5,7 @@ export type Project = {
   description: string;
   tags: string[];
   image: string;
+  repo?: string;
 };
 
 // Order here is the order on the home page, work page and "next project" links.
@@ -26,6 +27,16 @@ export const projects: Project[] = [
       "A hand-rolled rigid-body sandbox: circles, squares and triangles drifting in zero gravity with sub-stepped integration and soft collisions. Grab anything and fling it, or hit the Artron Inhibitor to switch gravity on.",
     tags: ["Canvas 2D", "Physics", "Collision response"],
     image: `${import.meta.env.BASE_URL}work/physics.png`,
+  },
+  {
+    slug: "muscle-arm",
+    title: "Muscle Arm",
+    tagline: "A robot arm driven by four artificial muscles",
+    description:
+      "A browser port of my efm-muscle-sim project: a two-joint arm moved by antagonistic pairs of simulated electrofluidic fiber muscles, the kind described in recent Science Robotics research. Each muscle responds with a lag, so the controller has to plan for it. Slow the muscles down and the arm overshoots. Independent work, not affiliated with the original researchers.",
+    tags: ["Canvas 2D", "Robotics", "Control"],
+    image: `${import.meta.env.BASE_URL}work/muscle-arm.png`,
+    repo: "https://github.com/joetol2/efm-muscle-sim",
   },
   {
     slug: "blocks",
@@ -61,5 +72,43 @@ export const reviewProjects = [
     title: "Soft-Body Zero-G",
     tagline: "The first zero-gravity scene, built on fizx",
     dir: "fizx2",
+  },
+];
+
+// Tools and sites shown on the lab page that aren't canvas pieces.
+export type Tool = {
+  title: string;
+  tagline: string;
+  description: string;
+  tags: string[];
+  image?: string;
+  href?: string;
+};
+
+export const tools: Tool[] = [
+  {
+    title: "3RD SPACE",
+    tagline: "A community venue's website and booking system, run on free Google tools",
+    description:
+      "The website for 3RD SPACE, a place to gather in the Santa Ynez Valley. People request a date and see a minimum price while they fill in the form. One Google Apps Script file is the whole backend: it saves each request to Google Sheets, emails the space manager, and flags clashes with the calendar. The site rebuilds itself from Google Calendar every hour, with no servers to run. I also wrote its documentation, including a system map and a staff guide that turns answering a request into two steps for a non-technical space manager.",
+    tags: ["React", "Google Apps Script", "GitHub Pages"],
+    image: `${import.meta.env.BASE_URL}work/3rd-space.jpg`,
+    href: "https://3rdspacesyv.com",
+  },
+  {
+    title: "Aware",
+    tagline: "A safety check-in app for people heading outdoors",
+    description:
+      "Tell Aware where you're going and when you'll be back. It runs a countdown you can extend or end by marking yourself safe, keeps your emergency contacts and trip history, and works with no account and no backend. A deliberately simple prototype with no AI in it, and SMS check-ins on the roadmap.",
+    tags: ["React", "Prototype", "Mobile web"],
+    image: `${import.meta.env.BASE_URL}work/aware.png`,
+    href: "https://joetol2.github.io/aware-adventures/",
+  },
+  {
+    title: "AI Law & Policy Hub",
+    tagline: "A living guide to U.S. rules on AI-generated advertising",
+    description:
+      "A reference site I built for a creative agency that tracks federal and state laws, agency actions and pending bills on deepfakes, digital replicas, synthetic media and AI disclosure in advertising. Claude Code runs every week in GitHub Actions to research new developments and update the page.",
+    tags: ["Claude Code", "GitHub Actions", "AI policy"],
   },
 ];

@@ -200,6 +200,11 @@ export const caseStudies: CaseStudy[] = [
     ],
     image: "https://i.ytimg.com/vi/g5BK8gT2Gmw/hqdefault.jpg",
     videos: [{ kind: "youtube", id: "g5BK8gT2Gmw", title: "MY HIVE animated trailer" }],
+    links: [
+      { label: "Lefty's Coffee Co.", href: "https://www.leftyscoffeeco.com" },
+      { label: "EarthEssence", href: "http://earthessence.ca" },
+      { label: "Santa Ynez Valley Botanic Garden", href: "http://santaynezvalleybotanicgarden.org" },
+    ],
   },
 ];
 
