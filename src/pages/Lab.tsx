@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import PageNav from "@/components/PageNav";
 import Footer from "@/components/Footer";
 import ProjectCard from "@/components/ProjectCard";
@@ -15,12 +14,7 @@ const Lab = () => (
         Things that move, built on canvas
       </h1>
       <p className="animate-fade-up-delay-2 text-lg text-white/80 leading-relaxed max-w-2xl">
-        Interactive experiments in motion, physics and play, drawn frame by frame with the Canvas API. Most started as
-        ideas for the{" "}
-        <Link to="/work/sim2real" className="underline underline-offset-4 decoration-white/40 hover:text-white">
-          Sim2Real
-        </Link>{" "}
-        website. Open one to play with it.
+        Interactive experiments in motion, physics and play, drawn frame by frame. Open one to play with it.
       </p>
     </div>
     <Section>

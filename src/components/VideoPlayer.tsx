@@ -48,19 +48,17 @@ const VideoPlayer = ({ id, title, poster, className = "" }: Props) => {
   // Create the Vimeo player the first time someone presses play.
   useEffect(() => {
     if (!started || !frameRef.current || playerRef.current) return;
-    const player = new Player(frameRef.current, {
-      id: Number(id),
-      controls: false,
-      dnt: true,
-      title: false,
-      byline: false,
-      portrait: false,
-      playsinline: true,
-      autopause: true,
-      keyboard: false,
-      pip: false,
-      responsive: false,
-    });
+    // Build the iframe ourselves rather than passing an id: given an id, the
+    // SDK first looks the video up through vimeo.com's oEmbed API, an extra
+    // request that can fail for videos hidden from vimeo.com.
+    const iframe = document.createElement("iframe");
+    iframe.src =
+      `https://player.vimeo.com/video/${id}?controls=0&dnt=1&title=0&byline=0&portrait=0` +
+      "&playsinline=1&autopause=1&keyboard=0&pip=0&autoplay=1";
+    iframe.allow = "autoplay; fullscreen";
+    iframe.title = title;
+    frameRef.current.appendChild(iframe);
+    const player = new Player(iframe);
     playerRef.current = player;
     player.on("loaded", () => {
       setReady(true);
@@ -84,7 +82,7 @@ const VideoPlayer = ({ id, title, poster, className = "" }: Props) => {
       player.destroy().catch(() => {});
       playerRef.current = null;
     };
-  }, [started, id]);
+  }, [started, id, title]);
 
   useEffect(() => {
     const onFs = () => setFull(document.fullscreenElement === wrapRef.current);
