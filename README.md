@@ -7,6 +7,7 @@ Joe Tolerico's personal site. Layout and styles are shared with the
 
 - `/` home: hero, career timeline, selected work, lab, recognition
 - `/work` and `/work/:slug`: case studies
+- `/videos`: every Vimeo video on the site, grouped by case study
 - `/lab`: the canvas pieces (`/lab/starfield`, `/lab/physics`, `/lab/muscle-arm`, `/lab/blocks`, `/lab/swarm`), sites and tools, and older pages for review
 - `/about`, `/contact`
 

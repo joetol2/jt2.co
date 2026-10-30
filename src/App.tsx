@@ -3,6 +3,7 @@ import Index from "./pages/Index.tsx";
 import Work from "./pages/Work.tsx";
 import Case from "./pages/Case.tsx";
 import Lab from "./pages/Lab.tsx";
+import Videos from "./pages/Videos.tsx";
 import About from "./pages/About.tsx";
 import Contact from "./pages/Contact.tsx";
 import Starfield from "./pages/Starfield.tsx";
@@ -24,6 +25,7 @@ const App = () => (
       <Route path="/" element={<Index />} />
       <Route path="/work" element={<Work />} />
       <Route path="/work/:slug" element={<Case />} />
+      <Route path="/videos" element={<Videos />} />
       <Route path="/lab" element={<Lab />} />
       <Route path="/lab/starfield" element={<Starfield />} />
       <Route path="/lab/physics" element={<Physics />} />

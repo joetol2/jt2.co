@@ -4,10 +4,18 @@ import Footer from "@/components/Footer";
 import SpeedField, { DEFAULTS } from "@/components/SpeedField";
 import CaseCard from "@/components/CaseCard";
 import ProjectCard from "@/components/ProjectCard";
+import VideoPlayer from "@/components/VideoPlayer";
+import { vimeoPoster } from "@/components/VideoEmbed";
 import { Section, Label, Heading, Body, primaryButton, secondaryButton } from "@/components/Section";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { caseStudies, eras, featured, recognition, service, CONTACT_EMAIL } from "@/data/content";
 import { projects } from "@/data/projects";
+
+const watch = [
+  { id: "80954249", title: "Heroes Digital Experience" },
+  { id: "216764413", title: "FOX advanced ad products sizzle" },
+  { id: "81060620", title: "Gemini Division digital experience" },
+];
 
 const heroStars = { ...DEFAULTS, starCount: 360, speed: 1.4 };
 
@@ -119,6 +127,19 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <Section>
+        <Label>Watch</Label>
+        <Heading>See the work</Heading>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+          {watch.map((v) => (
+            <VideoPlayer key={v.id} id={v.id} title={v.title} poster={vimeoPoster(v.id)} />
+          ))}
+        </div>
+        <Link to="/videos" className={`${secondaryButton} mt-10`}>
+          All videos
+        </Link>
+      </Section>
 
       <Section dark>
         <Label>Selected work</Label>
