@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import VideoEmbed, { vimeoPoster } from "@/components/VideoEmbed";
 import VideoPlayer from "@/components/VideoPlayer";
 import WorkNav from "@/components/WorkNav";
+import CaseCard from "@/components/CaseCard";
 import { Section, Label, primaryButton } from "@/components/Section";
 import NotFound from "@/pages/NotFound";
 import { caseStudies, CONTACT_EMAIL } from "@/data/content";
@@ -88,6 +89,18 @@ const Case = () => {
           </aside>
         </div>
       </Section>
+
+      {study.related && (
+        <Section>
+          <Label>Explore</Label>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {study.related.map((slug) => {
+              const r = caseStudies.find((c) => c.slug === slug);
+              return r ? <CaseCard key={slug} study={r} /> : null;
+            })}
+          </div>
+        </Section>
+      )}
 
       {study.reel?.map((group) => (
         <Section key={group.title}>

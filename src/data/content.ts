@@ -36,6 +36,8 @@ export type CaseStudy = {
   stat?: { value: string; label: string };
   image?: string;
   videos?: Video[];
+  // Case studies linked as cards from this page.
+  related?: string[];
   // More Vimeo videos, shown in a grid under the write-up.
   reel?: { title: string; videos: { id: string; title: string }[] }[];
   gallery?: { src: string; alt: string }[];
@@ -116,26 +118,71 @@ export const caseStudies: CaseStudy[] = [
     stat: { value: "Global", label: "core services" },
   },
   {
-    slug: "fngenius",
+    slug: "fox-ad-products",
     category: "advertising",
-    title: "A live game show inside the TV app",
+    title: "Advanced ad products at FOX",
     org: "FOX",
-    years: "2014 to 2019",
+    years: "2017 to 2019",
     role: "Director, Advanced Advertising Product Management",
     summary:
-      "FNGENIUS, a weekly live interactive game show for FOX fans, and a portfolio of interactive ad products across linear, CTV and digital.",
+      "Eight interactive ad products across linear, connected TV and digital that generated $25M in their first 18 months.",
     body: [
       "At Fox Networks Group I ran advanced advertising product management: the creation, launch and roadmap of new ad products that worked across linear TV, connected TV and digital. I built the business cases, pro forma models and KPI frameworks, and managed product managers alongside third-party vendors.",
-      "We developed and operationalized eight advanced interactive engagement ad products, which generated $25M in incremental revenue in their first 18 months.",
-      "I was Product Owner and lead product manager for FNGENIUS, a weekly live interactive game show delivered to FOX fans through direct-to-consumer apps, with real-time trivia played alongside FOX programming. Before that I ran social media and then video products at FOX Broadcasting, including the MPX video publishing workflows.",
+      "We developed and operationalized eight advanced interactive engagement ad products, which generated $25M in incremental revenue in their first 18 months. The pages below show the products themselves: ad units for FOX and FX, sponsored formats, branded bumpers and FNGENIUS, a live game show inside FOX's apps.",
     ],
+    related: ["fngenius", "fox-fx-ad-units", "sponsored-formats", "branded-bumpers", "fox-now"],
     stat: { value: "$25M", label: "first 18 months" },
     videos: [{ kind: "vimeo", id: "216764413", title: "Advanced ad products sizzle" }],
     reel: [
       {
-        title: "FOX and FX ad products",
+        title: "Sizzle reels",
         videos: [
-          { id: "218024087", title: "FX Originals ad model" },
+          { id: "259221601", title: "Ad products sizzle reel" },
+          { id: "259221424", title: "Advanced ad products :30" },
+          { id: "302927895", title: "FNG sizzle, alternate cut" },
+          { id: "237109218", title: "FNG Magic promo" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "fngenius",
+    category: "advertising",
+    title: "FNGENIUS: a live game show inside the TV app",
+    org: "FOX",
+    years: "2017 to 2019",
+    role: "Product Owner and lead product manager",
+    summary: "A weekly live interactive game show for FOX fans, played in FOX's own apps alongside FOX programming.",
+    body: [
+      "FNGENIUS was a weekly, live interactive game show delivered to FOX fans through direct-to-consumer apps. Viewers played real-time trivia and games while they watched FOX programming, which gave advertisers a way to reach an audience that was actively playing along.",
+      "I was Product Owner and lead product manager, working with engineering, marketing and digital production to tie the live game to FOX's broadcasts.",
+    ],
+    stat: { value: "Live", label: "weekly game show" },
+    videos: [{ kind: "vimeo", id: "293442078", title: "FNGENIUS social sizzle" }],
+    reel: [{ title: "More FNGENIUS", videos: [{ id: "293221649", title: "FNGENIUS social sizzle with Twix" }] }],
+    links: [
+      { label: "Forbes on FNGENIUS", href: "https://bit.ly/2Cv63ZT" },
+      { label: "Deadline on FNGENIUS", href: "https://bit.ly/2O2zNPb" },
+    ],
+  },
+  {
+    slug: "fox-fx-ad-units",
+    category: "advertising",
+    title: "Interactive ad units for FOX and FX",
+    org: "FOX",
+    years: "2017 to 2019",
+    role: "Director, Advanced Advertising Product Management",
+    summary:
+      "Choice cards, sponsored collections and spots that let viewers trade one interactive ad for a commercial-free episode.",
+    body: [
+      "These units ran with FX and FOX programming across FX NOW, Roku and linear TV. They include true[X] choice cards and menus that let viewers choose how they see ads, a Trident sponsored collection, Roku placements for It's Always Sunny in Philadelphia and Archer, and spots for The Strain and The Americans.",
+    ],
+    stat: { value: "10", label: "ad units" },
+    videos: [{ kind: "vimeo", id: "218024087", title: "FX Originals ad model" }],
+    reel: [
+      {
+        title: "The ad units",
+        videos: [
           { id: "216764489", title: "FX NOW true[X] choice card: Taboo" },
           { id: "216764725", title: "true[X] menu experience" },
           { id: "216764658", title: "true[X] menu experience, alternate" },
@@ -147,52 +194,69 @@ export const caseStudies: CaseStudy[] = [
           { id: "218085944", title: "The Americans, theme and voiceover" },
         ],
       },
+    ],
+  },
+  {
+    slug: "sponsored-formats",
+    category: "advertising",
+    title: "Sponsored formats for streams and live events",
+    org: "FOX",
+    years: "2017 to 2019",
+    role: "Director, Advanced Advertising Product Management",
+    summary: "Formats that put a brand alongside the content instead of interrupting it.",
+    body: [
+      "A sponsored stream of The Orville presented by Buick, a Samsung exposure profile, and sponsored ad breaks for live events on FOX Sports GO.",
+    ],
+    stat: { value: "Sponsored", label: "streams and live events" },
+    videos: [{ kind: "vimeo", id: "259221307", title: "Sponsored stream: The Orville with Buick" }],
+    reel: [
       {
-        title: "Sizzle reels",
+        title: "More formats",
         videos: [
-          { id: "259221601", title: "Ad products sizzle reel" },
-          { id: "259221424", title: "Advanced ad products :30" },
-          { id: "302927895", title: "FNG sizzle, alternate cut" },
-          { id: "237109218", title: "FNG Magic promo" },
-        ],
-      },
-      {
-        title: "FNGENIUS",
-        videos: [
-          { id: "293221649", title: "FNGENIUS social sizzle with Twix" },
-          { id: "293442078", title: "FNGENIUS social sizzle" },
-        ],
-      },
-      {
-        title: "Sponsored formats",
-        videos: [
-          { id: "259221307", title: "Sponsored stream: The Orville with Buick" },
           { id: "259221339", title: "Exposure profile: Samsung" },
           { id: "259221392", title: "Live event sponsored ad break, FOX Sports GO" },
         ],
       },
+    ],
+  },
+  {
+    slug: "branded-bumpers",
+    category: "advertising",
+    title: "Branded bumpers",
+    org: "FOX",
+    years: "2017 to 2019",
+    role: "Director, Advanced Advertising Product Management",
+    summary: "Three- to five-second branded bumpers and an ad mnemonic from the advanced ad products toolkit.",
+    body: ["Short animated pieces that carry a sponsor's brand in and out of the programming."],
+    stat: { value: "5 sec", label: "bumpers" },
+    videos: [{ kind: "vimeo", id: "259221351", title: "3D bumper" }],
+    reel: [
       {
-        title: "Branded bumpers",
+        title: "More bumpers",
         videos: [
-          { id: "259221351", title: "3D bumper" },
           { id: "259221709", title: "Ad mnemonic bumper" },
           { id: "259221718", title: "Rotating title bumper" },
           { id: "259221731", title: "Rotating stacked bumper" },
           { id: "259221735", title: "Dual rotating stacked titles" },
         ],
       },
-      {
-        title: "Product demos",
-        videos: [
-          { id: "259221394", title: "FOX NOW on Apple TV" },
-          { id: "302928103", title: "FNG design system demo" },
-        ],
-      },
     ],
-    links: [
-      { label: "Forbes on FNGENIUS", href: "https://bit.ly/2Cv63ZT" },
-      { label: "Deadline on FNGENIUS", href: "https://bit.ly/2O2zNPb" },
+  },
+  {
+    slug: "fox-now",
+    category: "advertising",
+    title: "FOX NOW and the FNG design system",
+    org: "FOX",
+    years: "2014 to 2019",
+    role: "Senior Product Manager, Social Media and Video Products",
+    summary: "FOX NOW on Apple TV, the FOX Networks Group design system, and the video publishing behind them.",
+    body: [
+      "Before advanced advertising I ran social media products and then video products at FOX Broadcasting, including the MPX video publishing workflows that got episodes and clips into FOX's apps.",
+      "These demos show FOX NOW on Apple TV and the FOX Networks Group design system.",
     ],
+    stat: { value: "FOX NOW", label: "Apple TV" },
+    videos: [{ kind: "vimeo", id: "259221394", title: "FOX NOW on Apple TV" }],
+    reel: [{ title: "Design system", videos: [{ id: "302928103", title: "FNG design system demo" }] }],
   },
   {
     slug: "live-events",
@@ -454,7 +518,7 @@ export const eras: { year: string; place: string; title: string; text: string; s
     place: "FOX",
     title: "Interactive TV and ads",
     text: "Eight interactive ad products that generated $25M in their first 18 months, and FNGENIUS, a live game show inside FOX's apps.",
-    slug: "fngenius",
+    slug: "fox-ad-products",
   },
   {
     year: "2019",
@@ -480,7 +544,7 @@ export const eras: { year: string; place: string; title: string; text: string; s
 ];
 
 // Selected work on the home page, in order.
-export const featured = ["agency-ai", "sim2real", "streaming-platform", "fngenius", "live-events", "heroes"];
+export const featured = ["agency-ai", "sim2real", "streaming-platform", "fox-ad-products", "live-events", "heroes"];
 
 export const recognition = [
   { award: "Primetime Emmy Award", detail: "Outstanding Interactive Television Programming, Heroes Digital Experience" },
