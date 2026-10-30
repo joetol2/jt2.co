@@ -25,7 +25,7 @@ const Lab = () => (
       </div>
     </Section>
     <Section dark>
-      <p className="text-sm font-heading tracking-[0.3em] uppercase text-muted-foreground mb-6">Sites and tools</p>
+      <p className="text-sm font-heading tracking-[0.3em] uppercase text-muted-foreground mb-6">Sites</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {tools.map((t) => {
           const body = (

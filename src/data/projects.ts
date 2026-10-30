@@ -75,7 +75,7 @@ export const reviewProjects = [
   },
 ];
 
-// Tools and sites shown on the lab page that aren't canvas pieces.
+// Sites shown on the lab page.
 export type Tool = {
   title: string;
   tagline: string;
