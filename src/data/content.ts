@@ -11,7 +11,7 @@ export type Video =
   | { kind: "youtube"; id: string; title: string }
   | { kind: "file"; src: string; poster?: string; title: string };
 
-export type Category = "ai" | "streaming" | "advertising" | "storytelling" | "early";
+export type Category = "ai" | "streaming" | "advertising" | "storytelling" | "sites" | "early";
 
 // Work sub-nav tabs, in order. Each case study belongs to one.
 export const categories: { slug: Category; label: string; blurb: string }[] = [
@@ -19,6 +19,7 @@ export const categories: { slug: Category; label: string; blurb: string }[] = [
   { slug: "streaming", label: "Streaming & Platforms", blurb: "The services and live events behind global streaming." },
   { slug: "advertising", label: "Advertising", blurb: "Interactive ad products and sponsorships across TV, streaming and digital." },
   { slug: "storytelling", label: "Interactive Storytelling", blurb: "Digital worlds, web series and social video that took NBC shows beyond the broadcast." },
+  { slug: "sites", label: "Websites", blurb: "Websites I've designed and built for clients, and for my own products." },
   { slug: "early", label: "Early Web & Independent", blurb: "Where it started, and the projects I take on now." },
 ];
 
@@ -353,6 +354,54 @@ export const caseStudies: CaseStudy[] = [
       "At On2 Technologies I was Senior Interactive Production Manager, running production and client UX. At Citigroup I was Director of Interactive Production for Global Marketing & Internal Communications, with a portfolio of more than 40 ongoing projects across ecommerce, rewards and data experiences.",
     ],
     stat: { value: "1997", label: "first website" },
+  },
+  {
+    slug: "3rd-space",
+    category: "sites",
+    title: "A community venue that runs on free tools",
+    org: "3RD SPACE",
+    years: "2026",
+    role: "Design, build and documentation",
+    summary:
+      "The website and booking system for 3RD SPACE, a place to gather in the Santa Ynez Valley, built so the venue pays nothing to run it.",
+    body: [
+      "People request a date on the site and see a minimum price while they fill in the form, so nobody sends a request without knowing roughly what it costs.",
+      "One Google Apps Script file is the whole backend. It saves each request to Google Sheets, emails the space manager and flags clashes with the calendar. The site rebuilds itself from Google Calendar every hour, so there are no servers to run and nothing to pay for.",
+      "I also wrote the documentation: a technical reference, a system map, and a staff guide that turns answering a request into two steps for a space manager who isn't technical.",
+    ],
+    image: `${import.meta.env.BASE_URL}work/3rd-space.jpg`,
+    stat: { value: "$0", label: "to run" },
+    links: [{ label: "Visit 3rdspacesyv.com", href: "https://3rdspacesyv.com" }],
+  },
+  {
+    slug: "aware",
+    category: "sites",
+    title: "A safety check-in for adventurers",
+    org: "Aware",
+    years: "2026",
+    role: "Product, design and build",
+    summary: "A simple app for people heading outdoors: say where you're going and when you'll be back.",
+    body: [
+      "Aware runs a countdown to your expected return that you can extend, or end by marking yourself safe. It keeps your emergency contacts and trip history, and it works with no account and no backend.",
+      "It's a deliberately simple prototype with no AI in it. SMS check-ins are on the roadmap.",
+    ],
+    image: `${import.meta.env.BASE_URL}work/aware.png`,
+    stat: { value: "Aware", label: "prototype" },
+    links: [{ label: "Try Aware", href: "https://joetol2.github.io/aware-adventures/" }],
+  },
+  {
+    slug: "ai-policy-hub",
+    category: "sites",
+    title: "A living guide to AI advertising law",
+    org: "Creative agency",
+    years: "2026",
+    role: "Product and build",
+    summary: "A reference site that tracks U.S. rules on AI-generated advertising and keeps itself up to date.",
+    body: [
+      "I built this for a creative agency. It tracks federal and state laws, agency actions and pending bills on deepfakes, digital replicas, synthetic media and AI disclosure in advertising.",
+      "Every week Claude Code runs in GitHub Actions to research new developments and update the page, so the team always has a current picture without anyone maintaining it by hand.",
+    ],
+    stat: { value: "Weekly", label: "updated by AI" },
   },
   {
     slug: "independent",
