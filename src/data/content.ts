@@ -89,6 +89,7 @@ export const caseStudies: CaseStudy[] = [
           { id: "1081906951", title: "Tycho-1 promo 2" },
         ],
       },
+      { title: "Bayes Edge", videos: [{ id: "1038288727", title: "Bayes Edge promo" }] },
     ],
     gallery: [
       { src: media("tycho-socks.jpg"), alt: "Two robot arms sorting socks on a workbench" },
@@ -143,6 +144,47 @@ export const caseStudies: CaseStudy[] = [
           { id: "229634812", title: "The Strain sponsored spot" },
           { id: "218086375", title: "The Americans, with theme song" },
           { id: "218085944", title: "The Americans, theme and voiceover" },
+        ],
+      },
+      {
+        title: "Sizzle reels",
+        videos: [
+          { id: "259221601", title: "Ad products sizzle reel" },
+          { id: "259221424", title: "Advanced ad products :30" },
+          { id: "302927895", title: "FNG sizzle, alternate cut" },
+          { id: "237109218", title: "FNG Magic promo" },
+        ],
+      },
+      {
+        title: "FNGENIUS",
+        videos: [
+          { id: "293221649", title: "FNGENIUS social sizzle with Twix" },
+          { id: "293442078", title: "FNGENIUS social sizzle" },
+        ],
+      },
+      {
+        title: "Sponsored formats",
+        videos: [
+          { id: "259221307", title: "Sponsored stream: The Orville with Buick" },
+          { id: "259221339", title: "Exposure profile: Samsung" },
+          { id: "259221392", title: "Live event sponsored ad break, FOX Sports GO" },
+        ],
+      },
+      {
+        title: "Branded bumpers",
+        videos: [
+          { id: "259221351", title: "3D bumper" },
+          { id: "259221709", title: "Ad mnemonic bumper" },
+          { id: "259221718", title: "Rotating title bumper" },
+          { id: "259221731", title: "Rotating stacked bumper" },
+          { id: "259221735", title: "Dual rotating stacked titles" },
+        ],
+      },
+      {
+        title: "Product demos",
+        videos: [
+          { id: "259221394", title: "FOX NOW on Apple TV" },
+          { id: "302928103", title: "FNG design system demo" },
         ],
       },
     ],
