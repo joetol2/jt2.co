@@ -11,8 +11,20 @@ export type Video =
   | { kind: "youtube"; id: string; title: string }
   | { kind: "file"; src: string; poster?: string; title: string };
 
+export type Category = "ai" | "streaming" | "advertising" | "storytelling" | "early";
+
+// Work sub-nav tabs, in order. Each case study belongs to one.
+export const categories: { slug: Category; label: string; blurb: string }[] = [
+  { slug: "ai", label: "AI & Robotics", blurb: "Putting AI to work at a creative agency, and teaching robots in simulation." },
+  { slug: "streaming", label: "Streaming & Platforms", blurb: "The services and live events behind global streaming." },
+  { slug: "advertising", label: "Advertising", blurb: "Interactive ad products and sponsorships across TV, streaming and digital." },
+  { slug: "storytelling", label: "Interactive Storytelling", blurb: "Digital worlds, web series and social video that took NBC shows beyond the broadcast." },
+  { slug: "early", label: "Early Web & Independent", blurb: "Where it started, and the projects I take on now." },
+];
+
 export type CaseStudy = {
   slug: string;
+  category: Category;
   title: string;
   org: string;
   years: string;
@@ -32,6 +44,7 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "agency-ai",
+    category: "ai",
     title: "Bringing AI into a creative agency",
     org: "Creative agency",
     years: "2025 to now",
@@ -53,6 +66,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "sim2real",
+    category: "ai",
     title: "Robots that learn in simulation",
     org: "Robotics, including Sim2Real",
     years: "2024 to now",
@@ -85,6 +99,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "streaming-platform",
+    category: "streaming",
     title: "The services behind a global streaming service",
     org: "Discovery / Warner Bros. Discovery",
     years: "2019 to 2023",
@@ -100,6 +115,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "fngenius",
+    category: "advertising",
     title: "A live game show inside the TV app",
     org: "FOX",
     years: "2014 to 2019",
@@ -137,6 +153,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "live-events",
+    category: "streaming",
     title: "Olympics and rocket launches, streamed live",
     org: "NBCUniversal and FOX",
     years: "Multiple events",
@@ -151,6 +168,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "heroes",
+    category: "storytelling",
     title: "Extending Heroes beyond the TV",
     org: "NBCUniversal",
     years: "2006 to 2014",
@@ -193,6 +211,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "deal-or-no-deal",
+    category: "advertising",
     title: "A $4.3M sponsorship, on air and online",
     org: "NBCUniversal",
     years: "2006 to 2014",
@@ -209,6 +228,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "nbc-dramas",
+    category: "storytelling",
     title: "Digital worlds for Grimm and Kings",
     org: "NBCUniversal",
     years: "2006 to 2014",
@@ -236,6 +256,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "original-series",
+    category: "storytelling",
     title: "Original series made for the web",
     org: "NBCUniversal",
     years: "2006 to 2014",
@@ -278,6 +299,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "early-web",
+    category: "early",
     title: "When it was called new media",
     org: "On2 Technologies, Citigroup and direct clients",
     years: "1997 to 2006",
@@ -292,6 +314,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "independent",
+    category: "early",
     title: "Independent projects",
     org: "Independent",
     years: "2023 to now",

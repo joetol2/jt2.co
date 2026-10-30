@@ -136,7 +136,7 @@ const Index = () => {
             <VideoPlayer key={v.id} id={v.id} title={v.title} poster={vimeoPoster(v.id)} />
           ))}
         </div>
-        <Link to="/videos" className={`${secondaryButton} mt-10`}>
+        <Link to="/work/videos" className={`${secondaryButton} mt-10`}>
           All videos
         </Link>
       </Section>

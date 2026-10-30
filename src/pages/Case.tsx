@@ -3,6 +3,7 @@ import PageNav from "@/components/PageNav";
 import Footer from "@/components/Footer";
 import VideoEmbed, { vimeoPoster } from "@/components/VideoEmbed";
 import VideoPlayer from "@/components/VideoPlayer";
+import WorkNav from "@/components/WorkNav";
 import { Section, Label, primaryButton } from "@/components/Section";
 import NotFound from "@/pages/NotFound";
 import { caseStudies, CONTACT_EMAIL } from "@/data/content";
@@ -12,11 +13,14 @@ const Case = () => {
   const i = caseStudies.findIndex((c) => c.slug === slug);
   if (i < 0) return <NotFound />;
   const study = caseStudies[i];
-  const next = caseStudies[(i + 1) % caseStudies.length];
+  const same = caseStudies.filter((c) => c.category === study.category);
+  const next =
+    same.length > 1 ? same[(same.indexOf(study) + 1) % same.length] : caseStudies[(i + 1) % caseStudies.length];
 
   return (
     <main className="min-h-screen">
       <PageNav />
+      <WorkNav current={`/work/category/${study.category}`} />
       <div className="px-8 sm:px-12 lg:px-20 pt-16 pb-12 max-w-6xl mx-auto">
         <p className="animate-fade-up text-sm font-heading tracking-[0.3em] uppercase text-white/50 mb-6">
           {study.org} · {study.years}
