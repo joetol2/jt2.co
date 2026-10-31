@@ -2,6 +2,7 @@
 // generated metrics, no client names from the current agency role.
 
 const media = (file: string) => `${import.meta.env.BASE_URL}media/${file}`;
+const efm = (file: string) => media(`efm/${file}`);
 
 export const CONTACT_EMAIL = "jt@jt2.co";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/jtol2";
@@ -23,6 +24,11 @@ export const categories: { slug: Category; label: string; blurb: string }[] = [
   { slug: "early", label: "Early Web & Independent", blurb: "Where it started, and the projects I take on now." },
 ];
 
+// Visuals inside a chapter: a still image, or a short silent loop.
+export type Media =
+  | { kind: "image"; src: string; alt: string }
+  | { kind: "loop"; src: string; poster: string; alt: string };
+
 export type CaseStudy = {
   slug: string;
   category: Category;
@@ -36,6 +42,8 @@ export type CaseStudy = {
   stat?: { value: string; label: string };
   image?: string;
   videos?: Video[];
+  // Story told in chapters, each with optional visuals, after the body.
+  chapters?: { title: string; text: string[]; media?: Media[] }[];
   // Case studies linked as cards from this page.
   related?: string[];
   // More Vimeo videos, shown in a grid under the write-up.
@@ -99,6 +107,80 @@ export const caseStudies: CaseStudy[] = [
       { src: media("cube-stack.jpg"), alt: "Simulated robot arm stacking cubes" },
       { src: media("dice-sort.jpg"), alt: "Simulated robot arm sorting dice into bins" },
       { src: media("drone.jpg"), alt: "Simulated drone carrying objects to a bin" },
+    ],
+  },
+  {
+    slug: "efm-arm",
+    category: "ai",
+    title: "Teaching a muscle-powered arm to catch",
+    org: "EFM Sim",
+    years: "2026",
+    role: "Product, simulation design and training",
+    summary:
+      "A simulated robot arm driven by a new kind of artificial muscle, taken from a research paper to catching balls in 3D.",
+    body: [
+      "A new kind of artificial muscle was published in Science Robotics in April 2026: electrically driven fibers that pump fluid to contract. I wanted to know whether a robot arm built around them could learn real skills before the hardware exists, so I built the arm in simulation and taught it to catch.",
+    ],
+    image: efm("fast-catch.jpg"),
+    stat: { value: "46/50", label: "catches in evaluation" },
+    chapters: [
+      {
+        title: "One muscle",
+        text: [
+          "I modeled the muscle in software from the paper's published figures: 20% contraction and a 0.3-second response. Values the paper didn't publish, like force and damping, start as placeholders.",
+          "Then I put muscles in opposing pairs, like a biceps and a triceps, so they could bend a joint.",
+        ],
+        media: [
+          { kind: "image", src: efm("step-response.png"), alt: "Plot of one muscle's activation, contraction and force after it is switched on" },
+          { kind: "image", src: efm("joint-demo.png"), alt: "Plot of a flexor and extensor pair bending and releasing a joint" },
+        ],
+      },
+      {
+        title: "An arm that reaches",
+        text: [
+          "Two joints and four muscles, trained with reinforcement learning (PPO). The arm reached its target in 20 out of 20 tests, and I kept moving the target until it was reaching at nearly full extension.",
+          "You can drive this arm yourself in the Muscle Arm demo in my lab.",
+        ],
+        media: [
+          { kind: "image", src: efm("arm-diagram.png"), alt: "Diagram of the two-joint arm and its four muscles" },
+          { kind: "loop", src: efm("arm-ppo.mp4"), poster: efm("arm-ppo.jpg"), alt: "The trained two-joint arm reaching a target" },
+        ],
+      },
+      {
+        title: "Moving targets",
+        text: [
+          "Next the task changed from reaching a fixed point to intercepting a target that moves, and then a thrown ball. The arm caught it 10 out of 10 times in 2D.",
+        ],
+      },
+      {
+        title: "Into 3D, with a hand",
+        text: [
+          "I moved control into full 3D and mounted the open-source Allegro robotic hand. Then I trained the wrist so the palm turns to meet balls coming from the left, the right and above.",
+        ],
+      },
+      {
+        title: "Faster throws",
+        text: [
+          "Faster balls broke the policy: it caught 1 in 3. So I used bridge training, mixing earlier throws with harder ones and running 30 simulations in parallel on cloud GPUs. That brought it to 3 out of 3, then 46 catches in a 50-ball evaluation, and a ten-ball run with ten catches.",
+        ],
+        media: [
+          { kind: "loop", src: efm("fast-catch.mp4"), poster: efm("fast-catch.jpg"), alt: "Muscle-driven arm with a robotic hand catching fast balls" },
+          { kind: "loop", src: efm("bridge-catch.mp4"), poster: efm("bridge-catch.jpg"), alt: "The bridge-trained policy catching balls from three directions" },
+          { kind: "loop", src: efm("ten-ball.mp4"), poster: efm("ten-ball.jpg"), alt: "Timeline of a ten-ball run, with a side view and a top view of each catch" },
+        ],
+      },
+      {
+        title: "What it proves, and what's next",
+        text: [
+          "This is a simulation. The fingers are posed rather than learned, and the muscle values aren't yet measured on hardware.",
+          "Next I'm training under hardware-like limits on how hard and how fast the muscles can be driven. I'm also exploring a research question: whether tensor-network policies can learn the same skills with less training.",
+        ],
+      },
+    ],
+    links: [
+      { label: "The code on GitHub", href: "https://github.com/joetol2/efm-muscle-sim" },
+      { label: "The paper in Science Robotics", href: "https://doi.org/10.1126/scirobotics.ady6438" },
+      { label: "MIT News on the muscle fibers", href: "https://news.mit.edu/2026/new-type-electrically-driven-artificial-muscle-fiber-0409" },
     ],
   },
   {

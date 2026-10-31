@@ -90,6 +90,55 @@ const Case = () => {
         </div>
       </Section>
 
+      {study.chapters?.map((ch, n) => (
+        <Section key={ch.title} dark={n % 2 === 1}>
+          <div className="grid gap-10 md:grid-cols-[1fr_1.4fr] md:items-start">
+            <div>
+              <p className="text-xs font-heading tracking-[0.3em] uppercase text-muted-foreground mb-4">
+                {String(n + 1).padStart(2, "0")}
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-heading font-semibold tracking-tight mb-5">{ch.title}</h2>
+              <div className="space-y-4">
+                {ch.text.map((t) => (
+                  <p key={t.slice(0, 32)} className="text-base text-white/75 leading-relaxed">
+                    {t}
+                  </p>
+                ))}
+              </div>
+              {ch.title === "An arm that reaches" && (
+                <Link to="/lab/muscle-arm" className="inline-block mt-6 text-xs font-heading tracking-[0.2em] uppercase text-white/70 hover:text-white">
+                  Try the Muscle Arm →
+                </Link>
+              )}
+            </div>
+            {ch.media && (
+              <div className="grid gap-4">
+                {ch.media.map((m) =>
+                  m.kind === "image" ? (
+                    <img key={m.src} src={m.src} alt={m.alt} loading="lazy" className="w-full rounded-lg border border-white/10 bg-white" />
+                  ) : (
+                    <video
+                      key={m.src}
+                      src={m.src}
+                      poster={m.poster}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      disablePictureInPicture
+                      controlsList="nodownload"
+                      onContextMenu={(e) => e.preventDefault()}
+                      aria-label={m.alt}
+                      className="w-full rounded-lg border border-white/10 bg-black"
+                    />
+                  ),
+                )}
+              </div>
+            )}
+          </div>
+        </Section>
+      ))}
+
       {study.related && (
         <Section>
           <Label>Explore</Label>

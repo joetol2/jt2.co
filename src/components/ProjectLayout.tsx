@@ -25,6 +25,14 @@ const ProjectLayout = ({ slug, children }: { slug: string; children: React.React
             <p className="text-sm font-heading tracking-[0.3em] uppercase text-muted-foreground mb-6">About this piece</p>
             <h2 className="text-2xl sm:text-3xl font-heading font-semibold tracking-tight leading-[1.15] mb-4">{project.tagline}</h2>
             <p className="text-base text-white/70 leading-relaxed mb-6">{project.description}</p>
+            {project.story && (
+              <Link
+                to={project.story}
+                className="inline-block mb-6 mr-6 text-xs font-heading tracking-[0.2em] uppercase text-white/70 hover:text-white underline underline-offset-4 decoration-white/30"
+              >
+                Read the full story
+              </Link>
+            )}
             {project.repo && (
               <a
                 href={project.repo}

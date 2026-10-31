@@ -6,6 +6,8 @@ export type Project = {
   tags: string[];
   image: string;
   repo?: string;
+  // Case study that tells the story behind this piece.
+  story?: string;
 };
 
 // Order here is the order on the home page, work page and "next project" links.
@@ -37,6 +39,7 @@ export const projects: Project[] = [
     tags: ["Canvas 2D", "Robotics", "Control"],
     image: `${import.meta.env.BASE_URL}work/muscle-arm.png`,
     repo: "https://github.com/joetol2/efm-muscle-sim",
+    story: "/work/efm-arm",
   },
   {
     slug: "blocks",
