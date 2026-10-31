@@ -622,6 +622,54 @@ export const caseStudies: CaseStudy[] = [
     stat: { value: "1997", label: "first website" },
   },
   {
+    slug: "your-light-guide",
+    category: "sites",
+    title: "A home for a Human Design practice",
+    org: "Your Light Guide",
+    years: "Client site",
+    role: "Design and build",
+    summary:
+      "The website for Khaled, a certified Human Design consultant, built to make a complex system approachable and invite people to work with him.",
+    body: [
+      "Human Design is a dense system, so the site's job is to make it feel approachable. The home page introduces Khaled, explains what Human Design is in plain language, and walks through how a session works, from entering your birth details to reading your BodyGraph chart together.",
+      "About and Contact pages carry the conversation forward. I designed and built the site end to end, from its structure to the visual design and launch.",
+    ],
+    stat: { value: "Client", label: "design and build" },
+    links: [{ label: "Visit yourlightguide.com", href: "https://www.yourlightguide.com/" }],
+  },
+  {
+    slug: "the-pool-house",
+    category: "sites",
+    title: "A gallery site that feels like the gallery",
+    org: "The Pool House",
+    years: "Client site",
+    role: "Design and build",
+    summary:
+      "The website for The Pool House, a Pasadena art gallery built around community, with exhibitions, events, art for sale and press in one place.",
+    body: [
+      "The Pool House set out to reshape the traditional gallery experience: artist talks, interactive installations, community events and the occasional game of ping pong. The site carries that spirit, putting the gallery's happenings next to a shop for works from its collection and a section for press and reviews.",
+      "Visits are by appointment, so the website is the gallery's front door. I designed and built it end to end.",
+    ],
+    stat: { value: "Client", label: "design and build" },
+    links: [{ label: "Visit thepoolhouseart.com", href: "https://www.thepoolhouseart.com/" }],
+  },
+  {
+    slug: "botanic-garden",
+    category: "sites",
+    title: "A botanic garden's digital front door",
+    org: "Santa Ynez Valley Botanic Garden",
+    years: "Pro bono",
+    role: "Redesign and rebuild",
+    summary:
+      "A pro bono redesign and rebuild for a nonprofit botanic garden, organized so visitors can find events and resources and support the garden.",
+    body: [
+      "The garden offers a lot: tours, a holiday lights festival, education for groups and kids, native plant and horticultural resources, and virtual classes. The old site made that hard to find.",
+      "I reorganized everything into four clear paths: learn about the garden, find an event, discover its gardens and resources, and grow with the garden by donating, joining, volunteering or working there. I redesigned and rebuilt the site from the information architecture through the visual design and launch.",
+    ],
+    stat: { value: "Pro bono", label: "for a nonprofit" },
+    links: [{ label: "Visit the garden's site", href: "https://santaynezvalleybotanicgarden.org/" }],
+  },
+  {
     slug: "3rd-space",
     category: "sites",
     title: "A community venue that runs on free tools",
