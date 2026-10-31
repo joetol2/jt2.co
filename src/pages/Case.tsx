@@ -40,6 +40,11 @@ const Case = () => {
         <p className="animate-fade-up-delay-2 mt-6 text-xs font-heading tracking-[0.2em] uppercase text-white/50">
           Role: {study.role}
         </p>
+        {study.paper && (
+          <a href="#paper" className={`${primaryButton} mt-8`}>
+            Read the full paper ↓
+          </a>
+        )}
       </div>
 
       {study.videos?.length ? (
@@ -96,6 +101,64 @@ const Case = () => {
           </aside>
         </div>
       </Section>
+
+      {study.paper && (
+        <Section>
+          <article id="paper" className="max-w-3xl mx-auto">
+            <header className="mb-12 border-b border-white/10 pb-8">
+              <p className="text-xs font-heading tracking-[0.3em] uppercase text-muted-foreground mb-4">The full paper</p>
+              <h2 className="text-2xl sm:text-3xl font-heading font-semibold tracking-tight leading-snug mb-3">{study.paper.title}</h2>
+              <p className="text-base text-white/70 mb-4">{study.paper.subtitle}</p>
+              <p className="text-sm text-white/60">
+                {study.paper.author} · {study.paper.date}
+              </p>
+            </header>
+            {study.paper.blocks.map((b, k) => {
+              if (b.type === "figure")
+                return (
+                  <figure key={k} className="my-10">
+                    <img
+                      src={`${study.paper!.figures}${b.src}.png`}
+                      alt={b.alt}
+                      loading="lazy"
+                      className="w-full rounded-lg border border-white/10 bg-white"
+                    />
+                  </figure>
+                );
+              if (b.type === "h2")
+                return (
+                  <h3 key={k} className="mt-12 mb-4 text-xl sm:text-2xl font-heading font-semibold tracking-tight">
+                    {b.text}
+                  </h3>
+                );
+              if (b.type === "h3")
+                return (
+                  <h4 key={k} className="mt-8 mb-3 text-lg font-heading font-semibold">
+                    {b.text}
+                  </h4>
+                );
+              if (b.type === "ref") {
+                const [text, url] = b.text.split(/ (?=https?:\/\/\S+$)/);
+                return (
+                  <p key={k} className="mb-3 pl-6 -indent-6 text-sm text-white/65 leading-relaxed break-words">
+                    {text}{" "}
+                    {url && (
+                      <a href={url} target="_blank" rel="noreferrer" className="underline underline-offset-2 decoration-white/30 hover:text-white">
+                        {url}
+                      </a>
+                    )}
+                  </p>
+                );
+              }
+              return (
+                <p key={k} className="mb-5 text-base text-white/80 leading-[1.8]">
+                  {b.text}
+                </p>
+              );
+            })}
+          </article>
+        </Section>
+      )}
 
       {study.chapters?.map((ch, n) => (
         <Section key={ch.title} dark={n % 2 === 1}>

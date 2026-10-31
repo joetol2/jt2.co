@@ -3,6 +3,7 @@
 
 const media = (file: string) => `${import.meta.env.BASE_URL}media/${file}`;
 const efm = (file: string) => media(`efm/${file}`);
+const tensor = (file: string) => media(`papers/tensor/${file}`);
 
 export const CONTACT_EMAIL = "jt@jt2.co";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/jtol2";
@@ -32,6 +33,8 @@ export const categories: { slug: Category; label: string; blurb: string }[] = [
   { slug: "sites", label: "Websites", blurb: "Websites I've designed and built for clients." },
   { slug: "early", label: "Early Web & Independent", blurb: "Where it started, and the projects I take on now." },
 ];
+
+import { tensorPaper, type PaperBlock } from "@/data/papers/tensor";
 
 // Visuals inside a chapter: a still image, or a short silent loop.
 export type Media = (
@@ -67,6 +70,8 @@ export type CaseStudy = {
   stat?: { value: string; label: string };
   image?: string;
   videos?: Video[];
+  // Full text of a paper, shown as an article after the body.
+  paper?: { title: string; subtitle: string; author: string; date: string; figures: string; blocks: PaperBlock[] };
   // Story told in chapters, each with optional visuals, after the body.
   chapters?: { title: string; text: string[]; media?: Media[] }[];
   // Detail for technical readers, shown as an "Under the hood" section.
@@ -297,11 +302,37 @@ export const caseStudies: CaseStudy[] = [
         },
       ],
     },
+    related: ["tensor-policies"],
     links: [
       { label: "The code on GitHub", href: "https://github.com/joetol2/efm-muscle-sim" },
       { label: "The paper in Science Robotics", href: "https://doi.org/10.1126/scirobotics.ady6438" },
       { label: "MIT News on the muscle fibers", href: "https://news.mit.edu/2026/new-type-electrically-driven-artificial-muscle-fiber-0409" },
     ],
+  },
+  {
+    slug: "tensor-policies",
+    category: "research",
+    title: "Can tensor networks make robots learn faster?",
+    org: "Position paper",
+    years: "July 2026",
+    role: "Author",
+    summary:
+      "A position paper and experimental proposal: test whether tensor-network policies learn the EFM catching task in fewer training interactions than a standard neural network.",
+    body: [
+      "Training a robot policy with reinforcement learning takes a huge number of practice attempts. Tensor networks, a way of structuring a model that comes from physics, can represent the same functions with far fewer parameters. This paper asks whether that structure also helps a robot learn faster.",
+      "It makes a deliberately narrow claim and designs a fair test for it, using my muscle-powered catching arm as the first test bed. This is a proposal: the experiment it describes hasn't been run yet. The full paper is below.",
+    ],
+    image: tensor("card.jpg"),
+    stat: { value: "Paper", label: "position and proposal" },
+    paper: {
+      title: "Accelerating Embodied Policy Learning with Tensor-Network Architectures",
+      subtitle: "Technical position paper and experimental proposal",
+      author: "Joe Tolerico",
+      date: "July 10, 2026",
+      figures: tensor(""),
+      blocks: tensorPaper,
+    },
+    related: ["efm-arm"],
   },
   {
     slug: "streaming-platform",
