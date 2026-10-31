@@ -139,6 +139,65 @@ const Case = () => {
         </Section>
       ))}
 
+      {study.technical && (
+        <Section dark>
+          <Label>Under the hood</Label>
+          <h2 className="text-2xl sm:text-3xl font-heading font-semibold tracking-tight mb-8">For engineers</h2>
+          <div className="overflow-x-auto rounded-lg border border-white/10 mb-10">
+            <table className="w-full min-w-[640px] text-sm">
+              <thead>
+                <tr className="text-left text-xs font-heading tracking-[0.15em] uppercase text-white/50 border-b border-white/10">
+                  <th className="px-4 py-3 font-medium">Version</th>
+                  <th className="px-4 py-3 font-medium">Task</th>
+                  <th className="px-4 py-3 font-medium">Reported result</th>
+                </tr>
+              </thead>
+              <tbody>
+                {study.technical.timeline.map((row) => (
+                  <tr key={row.version} className="border-b border-white/5 last:border-0">
+                    <td className="px-4 py-3 font-mono text-white whitespace-nowrap">{row.version}</td>
+                    <td className="px-4 py-3 text-white/75">{row.task}</td>
+                    <td className="px-4 py-3 text-white/75">{row.result}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="grid gap-4">
+            {study.technical.sections.map((sec, n) => (
+              <details key={sec.title} open={n === 0} className="group min-w-0 rounded-lg border border-white/10 px-5 py-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between font-heading font-semibold">
+                  {sec.title}
+                  <span className="text-white/50 transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div className="mt-4 space-y-4">
+                  {sec.text?.map((t) => (
+                    <p key={t.slice(0, 32)} className="text-sm text-white/75 leading-relaxed">
+                      {t}
+                    </p>
+                  ))}
+                  {sec.code && (
+                    <pre className="overflow-x-auto rounded bg-black/40 p-4 text-xs leading-relaxed text-sky-100">
+                      <code>{sec.code}</code>
+                    </pre>
+                  )}
+                  {sec.rows && (
+                    <dl className="divide-y divide-white/5 text-sm">
+                      {sec.rows.map(([k, v]) => (
+                        <div key={k} className="grid gap-1 py-2 sm:grid-cols-[12rem_1fr] sm:gap-4">
+                          <dt className="font-heading text-white/90">{k}</dt>
+                          <dd className="text-white/70">{v}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  )}
+                </div>
+              </details>
+            ))}
+          </div>
+        </Section>
+      )}
+
       {study.related && (
         <Section>
           <Label>Explore</Label>

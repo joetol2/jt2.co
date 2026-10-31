@@ -44,6 +44,11 @@ export type CaseStudy = {
   videos?: Video[];
   // Story told in chapters, each with optional visuals, after the body.
   chapters?: { title: string; text: string[]; media?: Media[] }[];
+  // Detail for technical readers, shown as an "Under the hood" section.
+  technical?: {
+    timeline: { version: string; task: string; result: string }[];
+    sections: { title: string; text?: string[]; code?: string; rows?: [string, string][] }[];
+  };
   // Case studies linked as cards from this page.
   related?: string[];
   // More Vimeo videos, shown in a grid under the write-up.
@@ -177,6 +182,85 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
     ],
+    technical: {
+      timeline: [
+        { version: "v0.1", task: "Muscle model and antagonistic joint", result: "43 tests passing" },
+        { version: "v0.2", task: "Two-joint arm in a Gymnasium reach environment", result: "Environment smoke-tested" },
+        { version: "v10", task: "PPO reaching", result: "20/20, final distance 4.2 cm" },
+        { version: "v11", task: "Split rollout from rendering", result: "Fixed a render-time segfault; rollouts saved, rendered offline" },
+        { version: "v13 to v15", task: "Long reach, fine-tuned 40k steps", result: "Target at (0.70, 0.095) m, near full extension" },
+        { version: "v16", task: "Moving-target interception", result: "Successful rollout, closest approach 0.9 cm" },
+        { version: "v17", task: "Thrown ball in 2D, warm-started from v16", result: "10/10" },
+        { version: "v20", task: "True 3D control", result: "26 observations, 6 muscle commands" },
+        { version: "v21", task: "Trained wrist roll, Allegro hand mounted", result: "3/3 from left, right and top; wrist alignment 0.94 to 0.98" },
+        { version: "v23", task: "Shared hand-mount frame, alignment gated near the catch", result: "39 observations" },
+        { version: "v24b", task: "Faster throws", result: "1/3" },
+        { version: "v24c", task: "Bridge training from v24_fast, 160k steps", result: "3/3" },
+        { version: "v24d", task: "Expanded evaluation and ten-ball run", result: "46/50 (best 10/10, worst 8/10); ten-ball run 10/10" },
+      ],
+      sections: [
+        {
+          title: "Muscle model",
+          text: [
+            "Each muscle is a compliant linear actuator with first-order activation lag, integrated with explicit Euler. Contraction strain (20%), response time (0.3 s), fiber diameter (2 mm) and power density (50 W/kg) come from the paper. Force per fiber, stiffness and damping are placeholders, with a fitting workflow against the paper's public Zenodo dataset.",
+          ],
+          code: "a(t+dt) = a(t) + (dt / τ)(u - a(t))      τ = 0.30 s, u ∈ [0, 1]\nF = max(0, a · F_max · n - c · dL/dt)    n = fiber bundles\nτ_joint = r (F_flex - F_ext) - b · ω     r = moment arm",
+        },
+        {
+          title: "Control and observations",
+          rows: [
+            ["Actions (v24)", "8 commands in [0, 1]: flexor and extensor for shoulder yaw, shoulder pitch, elbow and wrist roll"],
+            ["Observations (v23 on)", "39 values, including joint state, ball state and hand-frame terms"],
+            ["Co-contraction", "Driving both muscles of a pair stiffens the joint without moving it, as in real antagonistic actuators"],
+            ["Hand", "Wonik Allegro from MuJoCo Menagerie, mounted on a shared hand frame; fingers posed, not trained"],
+          ],
+        },
+        {
+          title: "Reward",
+          rows: [
+            ["Core terms", "Distance to ball, catch hold bonus, effort and co-contraction penalties"],
+            ["Wrist alignment", "Weight 0.08"],
+            ["Hand alignment", "Weight 0.17, plus a 0.24 bonus for alignment at contact"],
+            ["Gating", "Hand-frame terms switch on in the final 1.2 s, or within 0.28 m of the ball"],
+          ],
+        },
+        {
+          title: "Training",
+          rows: [
+            ["Algorithm", "PPO (Stable-Baselines3, PyTorch) on Gymnasium environments"],
+            ["Compute", "30 parallel CPU environments, one thread each, on a Lambda cloud instance"],
+            ["Warm starts", "Each harder task fine-tunes the previous policy, for example v16 to v17 and v24_fast to v24c"],
+            ["Curriculum", "Bridge runs mix earlier throws with faster ones so new skills don't erase old ones"],
+            ["Rendering", "Rollouts saved to CSV, then rendered offscreen in MuJoCo at 1280 by 720"],
+          ],
+        },
+        {
+          title: "Evaluation",
+          text: [
+            "The headline results use fixed throws, not randomized ones. A catch counts when the hand stays within 9.5 cm of the ball for 4 steps, with a 280-step limit.",
+            "The 46/50 result came after fixing how the evaluator counted early misses, with no retraining. The ten-ball run is one continuous episode with no arm reset between balls (seed 40003).",
+          ],
+          rows: [
+            ["Left fast", "Start (1.32, 0.50, 0.26) m, velocity (-0.60, -0.39, -0.07) m/s"],
+            ["Right fast", "Start (1.32, -0.50, 0.26) m, velocity (-0.60, 0.39, -0.07) m/s"],
+            ["Top fast", "Start (0.99, 0.00, 0.83) m, velocity (-0.15, 0.00, -0.68) m/s"],
+          ],
+        },
+        {
+          title: "Known limitations",
+          text: [
+            "Muscle force, stiffness and damping are not yet fitted to measured data. The fingers are posed rather than learned, and there is no contact-driven grasp training. Results come from fixed throw conditions. The policy trains in the Python muscle environment and the videos are MuJoCo renders of saved rollouts, so the visuals don't validate the actuator model or transfer to hardware.",
+          ],
+        },
+        {
+          title: "Next",
+          rows: [
+            ["v25: hardware-like limits", "Command cap 0.95, deadband 0.015 and a slew limit of 0.14 per step, with penalties on command rate, co-activation, joint speed and joint limits, warm-started from v24c"],
+            ["v29: dense vs tensor PPO", "Matched environment, reward, seeds and budget; the primary measure is environment interactions needed to reach a set catch rate, with wall-clock time secondary"],
+          ],
+        },
+      ],
+    },
     links: [
       { label: "The code on GitHub", href: "https://github.com/joetol2/efm-muscle-sim" },
       { label: "The paper in Science Robotics", href: "https://doi.org/10.1126/scirobotics.ady6438" },
