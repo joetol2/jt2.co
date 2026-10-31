@@ -61,6 +61,8 @@ export type CaseStudy = {
   slug: string;
   category: Category;
   title: string;
+  // Optional line under the title on the case study page.
+  subtitle?: string;
   org: string;
   years: string;
   role: string;
@@ -312,7 +314,8 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "tensor-policies",
     category: "research",
-    title: "Can tensor networks make robots learn faster?",
+    title: "Accelerating Embodied Policy Learning with Tensor-Network Architectures",
+    subtitle: "Can tensor networks make robots learn faster?",
     org: "Position paper",
     years: "July 2026",
     role: "Author",

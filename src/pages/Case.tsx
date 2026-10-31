@@ -36,6 +36,9 @@ const Case = () => {
         <h1 className="animate-fade-up text-4xl sm:text-5xl font-heading font-semibold tracking-tight leading-[1.1] mb-6 max-w-4xl">
           {study.title}
         </h1>
+        {study.subtitle && (
+          <p className="animate-fade-up text-xl sm:text-2xl font-heading text-white/70 mb-6">{study.subtitle}</p>
+        )}
         <p className="animate-fade-up-delay-2 text-lg text-white/80 leading-relaxed max-w-3xl">{study.summary}</p>
         <p className="animate-fade-up-delay-2 mt-6 text-xs font-heading tracking-[0.2em] uppercase text-white/50">
           Role: {study.role}
@@ -103,13 +106,13 @@ const Case = () => {
       </Section>
 
       {study.paper && (
-        <Section>
-          <article id="paper" className="max-w-3xl mx-auto">
-            <header className="mb-12 border-b border-white/10 pb-8">
-              <p className="text-xs font-heading tracking-[0.3em] uppercase text-muted-foreground mb-4">The full paper</p>
+        <section className="bg-white text-[#0b1b33] py-16 sm:py-24">
+          <article id="paper" className="max-w-3xl mx-auto px-8 sm:px-12">
+            <header className="mb-12 border-b border-slate-200 pb-8">
+              <p className="text-xs font-heading tracking-[0.3em] uppercase text-slate-500 mb-4">The full paper</p>
               <h2 className="text-2xl sm:text-3xl font-heading font-semibold tracking-tight leading-snug mb-3">{study.paper.title}</h2>
-              <p className="text-base text-white/70 mb-4">{study.paper.subtitle}</p>
-              <p className="text-sm text-white/60">
+              <p className="text-base text-slate-600 mb-4">{study.paper.subtitle}</p>
+              <p className="text-sm text-slate-500">
                 {study.paper.author} · {study.paper.date}
               </p>
             </header>
@@ -121,7 +124,7 @@ const Case = () => {
                       src={`${study.paper!.figures}${b.src}.png`}
                       alt={b.alt}
                       loading="lazy"
-                      className="w-full rounded-lg border border-white/10 bg-white"
+                      className="w-full"
                     />
                   </figure>
                 );
@@ -140,10 +143,10 @@ const Case = () => {
               if (b.type === "ref") {
                 const [text, url] = b.text.split(/ (?=https?:\/\/\S+$)/);
                 return (
-                  <p key={k} className="mb-3 pl-6 -indent-6 text-sm text-white/65 leading-relaxed break-words">
+                  <p key={k} className="mb-3 pl-6 -indent-6 text-sm text-slate-600 leading-relaxed break-words">
                     {text}{" "}
                     {url && (
-                      <a href={url} target="_blank" rel="noreferrer" className="underline underline-offset-2 decoration-white/30 hover:text-white">
+                      <a href={url} target="_blank" rel="noreferrer" className="underline underline-offset-2 decoration-slate-300 text-[#016fb5] hover:text-[#012b62]">
                         {url}
                       </a>
                     )}
@@ -151,13 +154,13 @@ const Case = () => {
                 );
               }
               return (
-                <p key={k} className="mb-5 text-base text-white/80 leading-[1.8]">
+                <p key={k} className="mb-5 text-base text-slate-700 leading-[1.8]">
                   {b.text}
                 </p>
               );
             })}
           </article>
-        </Section>
+        </section>
       )}
 
       {study.chapters?.map((ch, n) => (
