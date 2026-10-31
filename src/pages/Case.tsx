@@ -106,8 +106,11 @@ const Case = () => {
       </Section>
 
       {study.paper && (
-        <section className="bg-white text-[#0b1b33] py-16 sm:py-24">
-          <article id="paper" className="max-w-3xl mx-auto px-8 sm:px-12">
+        <section className="py-16 sm:py-24 px-4 sm:px-8">
+          <article
+            id="paper"
+            className="max-w-4xl mx-auto rounded-xl bg-white text-[#0b1b33] shadow-2xl px-6 py-10 sm:px-16 sm:py-16"
+          >
             <header className="mb-12 border-b border-slate-200 pb-8">
               <p className="text-xs font-heading tracking-[0.3em] uppercase text-slate-500 mb-4">The full paper</p>
               <h2 className="text-2xl sm:text-3xl font-heading font-semibold tracking-tight leading-snug mb-3">{study.paper.title}</h2>
