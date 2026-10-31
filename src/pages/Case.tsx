@@ -6,6 +6,7 @@ import VideoPlayer from "@/components/VideoPlayer";
 import WorkNav from "@/components/WorkNav";
 import LabNav from "@/components/LabNav";
 import CaseCard from "@/components/CaseCard";
+import ArmCanvas, { DEFAULTS as ARM_DEFAULTS } from "@/components/MuscleArmCanvas";
 import { Section, Label, primaryButton } from "@/components/Section";
 import NotFound from "@/pages/NotFound";
 import { caseHref, caseStudies, isLab, CONTACT_EMAIL } from "@/data/content";
@@ -113,32 +114,38 @@ const Case = () => {
               </div>
               {ch.title === "An arm that reaches" && (
                 <Link to="/lab/muscle-arm" className="inline-block mt-6 text-xs font-heading tracking-[0.2em] uppercase text-white/70 hover:text-white">
-                  Try the Muscle Arm →
+                  Open the Muscle Arm full screen →
                 </Link>
               )}
             </div>
             {ch.media && (
               <div className="grid gap-4">
-                {ch.media.map((m) =>
-                  m.kind === "image" ? (
-                    <img key={m.src} src={m.src} alt={m.alt} loading="lazy" className="w-full rounded-lg border border-white/10 bg-white" />
-                  ) : (
-                    <video
-                      key={m.src}
-                      src={m.src}
-                      poster={m.poster}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      disablePictureInPicture
-                      controlsList="nodownload"
-                      onContextMenu={(e) => e.preventDefault()}
-                      aria-label={m.alt}
-                      className="w-full rounded-lg border border-white/10 bg-black"
-                    />
-                  ),
-                )}
+                {ch.media.map((m, k) => (
+                  <figure key={k}>
+                    {m.kind === "image" ? (
+                      <img src={m.src} alt={m.alt} loading="lazy" className="w-full rounded-lg border border-white/10 bg-white" />
+                    ) : m.kind === "loop" ? (
+                      <video
+                        src={m.src}
+                        poster={m.poster}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        disablePictureInPicture
+                        controlsList="nodownload"
+                        onContextMenu={(e) => e.preventDefault()}
+                        aria-label={m.alt}
+                        className="w-full rounded-lg border border-white/10 bg-black"
+                      />
+                    ) : (
+                      <div className="overflow-hidden rounded-lg border border-white/10 bg-[#05060a]">
+                        <ArmCanvas settings={ARM_DEFAULTS} className="h-[300px] sm:h-[420px]" />
+                      </div>
+                    )}
+                    {m.caption && <figcaption className="mt-2 text-xs text-white/55 leading-relaxed">{m.caption}</figcaption>}
+                  </figure>
+                ))}
               </div>
             )}
           </div>

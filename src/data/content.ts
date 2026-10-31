@@ -34,9 +34,11 @@ export const categories: { slug: Category; label: string; blurb: string }[] = [
 ];
 
 // Visuals inside a chapter: a still image, or a short silent loop.
-export type Media =
+export type Media = (
   | { kind: "image"; src: string; alt: string }
-  | { kind: "loop"; src: string; poster: string; alt: string };
+  | { kind: "loop"; src: string; poster: string; alt: string }
+  | { kind: "arm" }
+) & { caption?: string };
 
 // Lab sub-nav tabs that hold case studies. The Interactive tab holds the
 // canvas pieces in projects.ts instead.
@@ -167,11 +169,22 @@ export const caseStudies: CaseStudy[] = [
         title: "An arm that reaches",
         text: [
           "Two joints and four muscles, trained with reinforcement learning (PPO). The arm reached its target in 20 out of 20 tests, and I kept moving the target until it was reaching at nearly full extension.",
-          "You can drive this arm yourself in the Muscle Arm demo in my lab.",
+          "You can drive the same arm yourself, right here or full screen in my lab.",
         ],
         media: [
+          {
+            kind: "arm",
+            caption:
+              "Live: click or drag to set a target. The browser demo drives the muscles with the repo's scripted controller (inverse kinematics plus PD), not the trained policy.",
+          },
+          {
+            kind: "loop",
+            src: efm("arm-ppo.mp4"),
+            poster: efm("arm-ppo.jpg"),
+            alt: "The trained two-joint arm reaching a target",
+            caption: "The trained PPO policy reaching a target.",
+          },
           { kind: "image", src: efm("arm-diagram.png"), alt: "Diagram of the two-joint arm and its four muscles" },
-          { kind: "loop", src: efm("arm-ppo.mp4"), poster: efm("arm-ppo.jpg"), alt: "The trained two-joint arm reaching a target" },
         ],
       },
       {
