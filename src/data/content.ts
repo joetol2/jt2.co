@@ -12,7 +12,16 @@ export type Video =
   | { kind: "youtube"; id: string; title: string }
   | { kind: "file"; src: string; poster?: string; title: string };
 
-export type Category = "ai" | "streaming" | "advertising" | "storytelling" | "sites" | "early";
+export type Category =
+  | "ai"
+  | "streaming"
+  | "advertising"
+  | "storytelling"
+  | "sites"
+  | "early"
+  | "research"
+  | "experiments"
+  | "prototypes";
 
 // Work sub-nav tabs, in order. Each case study belongs to one.
 export const categories: { slug: Category; label: string; blurb: string }[] = [
@@ -20,7 +29,7 @@ export const categories: { slug: Category; label: string; blurb: string }[] = [
   { slug: "streaming", label: "Streaming & Platforms", blurb: "The services and live events behind global streaming." },
   { slug: "advertising", label: "Advertising", blurb: "Interactive ad products and sponsorships across TV, streaming and digital." },
   { slug: "storytelling", label: "Interactive Storytelling", blurb: "Digital worlds, web series and social video that took NBC shows beyond the broadcast." },
-  { slug: "sites", label: "Websites", blurb: "Websites I've designed and built for clients, and for my own products." },
+  { slug: "sites", label: "Websites", blurb: "Websites I've designed and built for clients." },
   { slug: "early", label: "Early Web & Independent", blurb: "Where it started, and the projects I take on now." },
 ];
 
@@ -28,6 +37,20 @@ export const categories: { slug: Category; label: string; blurb: string }[] = [
 export type Media =
   | { kind: "image"; src: string; alt: string }
   | { kind: "loop"; src: string; poster: string; alt: string };
+
+// Lab sub-nav tabs that hold case studies. The Interactive tab holds the
+// canvas pieces in projects.ts instead.
+export const labCategories: { slug: Category; label: string; blurb: string }[] = [
+  { slug: "research", label: "Research", blurb: "Longer projects and papers." },
+  { slug: "experiments", label: "Experiments", blurb: "Smaller studies: a question, a setup and what happened." },
+  { slug: "prototypes", label: "Prototypes", blurb: "Small products built to test an idea." },
+];
+
+export const isLab = (c: Category) => labCategories.some((l) => l.slug === c);
+
+// Lab case studies live under /lab, everything else under /work.
+export const caseHref = (study: { slug: string; category: Category }) =>
+  `${isLab(study.category) ? "/lab" : "/work"}/${study.slug}`;
 
 export type CaseStudy = {
   slug: string;
@@ -116,7 +139,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "efm-arm",
-    category: "ai",
+    category: "research",
     title: "Teaching a muscle-powered arm to catch",
     org: "EFM Sim",
     years: "2026",
@@ -605,7 +628,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "aware",
-    category: "sites",
+    category: "prototypes",
     title: "A safety check-in for adventurers",
     org: "Aware",
     years: "2026",

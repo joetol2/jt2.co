@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import SubNav from "@/components/SubNav";
 import { categories } from "@/data/content";
 
 const tabs = [
@@ -7,29 +7,6 @@ const tabs = [
   { to: "/work/videos", label: "Videos" },
 ];
 
-// Sub-nav for the Work section. `current` marks a tab active on pages whose
-// URL doesn't match it, such as a case study showing its category.
-const WorkNav = ({ current }: { current?: string }) => (
-  <nav aria-label="Work" className="border-y border-white/10">
-    <div className="max-w-6xl mx-auto px-8 sm:px-12 lg:px-20 flex gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-      {tabs.map((t) => (
-        <NavLink
-          key={t.to}
-          to={t.to}
-          end
-          className={({ isActive }) =>
-            `shrink-0 py-4 text-xs font-heading tracking-[0.2em] uppercase border-b-2 transition-colors duration-300 ${
-              isActive || current === t.to
-                ? "border-white text-white"
-                : "border-transparent text-white/50 hover:text-white"
-            }`
-          }
-        >
-          {t.label}
-        </NavLink>
-      ))}
-    </div>
-  </nav>
-);
+const WorkNav = ({ current }: { current?: string }) => <SubNav label="Work" tabs={tabs} current={current} />;
 
 export default WorkNav;

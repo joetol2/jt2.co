@@ -159,8 +159,8 @@ const Index = () => {
         <Heading>I still build things</Heading>
         <div className="max-w-2xl mb-10">
           <Body>
-            Small interactive pieces written by hand with the Canvas API. They started as experiments for the Sim2Real
-            website. Every one runs live in your browser.
+            Independent research, experiments and prototypes, from a muscle-powered robot arm that learned to catch to
+            interactive pieces that run live in your browser.
           </Body>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -35,6 +35,8 @@ const App = () => (
       <Route path="/lab/swarm" element={<Swarm />} />
       <Route path="/lab/muscle-arm" element={<MuscleArm />} />
       <Route path="/lab/review/:slug" element={<Review />} />
+      <Route path="/lab/category/:category" element={<Lab />} />
+      <Route path="/lab/:slug" element={<Case />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       {["starfield", "physics", "blocks", "swarm"].flatMap((slug) => [

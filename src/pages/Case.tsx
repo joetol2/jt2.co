@@ -1,27 +1,33 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useLocation, useParams } from "react-router-dom";
 import PageNav from "@/components/PageNav";
 import Footer from "@/components/Footer";
 import VideoEmbed, { vimeoPoster } from "@/components/VideoEmbed";
 import VideoPlayer from "@/components/VideoPlayer";
 import WorkNav from "@/components/WorkNav";
+import LabNav from "@/components/LabNav";
 import CaseCard from "@/components/CaseCard";
 import { Section, Label, primaryButton } from "@/components/Section";
 import NotFound from "@/pages/NotFound";
-import { caseStudies, CONTACT_EMAIL } from "@/data/content";
+import { caseHref, caseStudies, isLab, CONTACT_EMAIL } from "@/data/content";
 
 const Case = () => {
   const { slug } = useParams();
+  const { pathname } = useLocation();
   const i = caseStudies.findIndex((c) => c.slug === slug);
   if (i < 0) return <NotFound />;
   const study = caseStudies[i];
+  const lab = isLab(study.category);
+  // A study moved between Work and Lab keeps its old URL working.
+  if (!pathname.startsWith(lab ? "/lab/" : "/work/")) return <Navigate to={caseHref(study)} replace />;
+  // Next stays in the same category, or failing that the same section.
   const same = caseStudies.filter((c) => c.category === study.category);
-  const next =
-    same.length > 1 ? same[(same.indexOf(study) + 1) % same.length] : caseStudies[(i + 1) % caseStudies.length];
+  const pool = same.length > 1 ? same : caseStudies.filter((c) => isLab(c.category) === isLab(study.category));
+  const next = pool[(pool.indexOf(study) + 1) % pool.length];
 
   return (
     <main className="min-h-screen">
       <PageNav />
-      <WorkNav current={`/work/category/${study.category}`} />
+      {lab ? <LabNav current={`/lab/category/${study.category}`} /> : <WorkNav current={`/work/category/${study.category}`} />}
       <div className="px-8 sm:px-12 lg:px-20 pt-16 pb-12 max-w-6xl mx-auto">
         <p className="animate-fade-up text-sm font-heading tracking-[0.3em] uppercase text-white/50 mb-6">
           {study.org} · {study.years}
@@ -238,7 +244,7 @@ const Case = () => {
 
       <Section>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-          <Link to={`/work/${next.slug}`} className="group">
+          <Link to={caseHref(next)} className="group">
             <p className="text-xs font-heading tracking-[0.25em] uppercase text-muted-foreground mb-2">Next</p>
             <p className="text-xl sm:text-2xl font-heading font-semibold group-hover:text-white/80 transition-colors">
               {next.title} →

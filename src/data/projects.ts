@@ -39,7 +39,7 @@ export const projects: Project[] = [
     tags: ["Canvas 2D", "Robotics", "Control"],
     image: `${import.meta.env.BASE_URL}work/muscle-arm.png`,
     repo: "https://github.com/joetol2/efm-muscle-sim",
-    story: "/work/efm-arm",
+    story: "/lab/efm-arm",
   },
   {
     slug: "blocks",

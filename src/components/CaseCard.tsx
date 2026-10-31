@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import type { CaseStudy } from "@/data/content";
+import { caseHref, type CaseStudy } from "@/data/content";
 
 // Cards without a screenshot get a big stat instead, so every card has a
 // strong visual anchor.
 const CaseCard = ({ study }: { study: CaseStudy }) => (
   <Link
-    to={`/work/${study.slug}`}
+    to={caseHref(study)}
     className="group flex flex-col border border-white/10 rounded-lg overflow-hidden hover:border-white/30 transition-colors duration-300"
   >
     <div className="relative aspect-[16/10] overflow-hidden" style={{ background: "linear-gradient(135deg, #012b62 0%, #05060a 100%)" }}>
