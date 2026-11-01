@@ -519,6 +519,7 @@ export const caseStudies: CaseStudy[] = [
     body: [
       "As Senior Producer at NBC I was project lead on digital for a long list of shows, including Heroes, Grimm, The Office, 30 Rock, Saturday Night Live, The Biggest Loser, Law & Order: SVU, Deal or No Deal, Minute to Win It and Gemini Division.",
       "I ran several in-house teams and third-party vendors in parallel, handling budgets, hiring, and contract and rate negotiations. I led brainstorming sessions with show writers and executive producers to find digital ideas and product integrations that could sell, and ran the weekly approvals with legal, sponsors, show executives and studio executives.",
+      "I was responsible for NBC's first fan site deal, which brought 18.9 million unique visitors to NBC in its first six weeks, and led NBC's first second-screen experience.",
       "Along the way I led The Office's \"Make Your Own Promo\" contest on YouTube, kept each site in step with sales commitments and changing storylines, and built a new online production process for senior management that made sites faster to produce and maintain.",
     ],
     stat: { value: "10+", label: "NBC shows" },
@@ -535,7 +536,7 @@ export const caseStudies: CaseStudy[] = [
       "Lead producer on the Emmy-winning Heroes Digital Experience, weekly graphic novels for four years, and the Heroes exhibits at Comic-Con.",
     body: [
       "Heroes told its story on TV and on the web at the same time. As lead producer for the Heroes online experience I worked with the showrunners, writers and NBC's digital marketing team on webisodes, character backstories and interactive pieces that let fans go deeper than the broadcast.",
-      "I led production of the weekly Heroes graphic novels for four years, working with comic artists and writers to add storylines that weren't in the show. I also produced and ran the Heroes exhibits at Comic-Con from 2007 through 2009, and developed and led Heroes iStory.",
+      "I led production of the weekly Heroes graphic novels for four years, working with comic artists and writers to add storylines that weren't in the show. I also produced and ran the Heroes exhibits at Comic-Con from 2007 through 2009, and developed and led Heroes iStory, which doubled the site's traffic in three weeks.",
       "The Heroes Digital Experience won the Primetime Emmy for Outstanding Interactive Television Programming at the 61st Primetime Emmy Awards, after a nomination in the same category the year before. Create Your Hero won two PromaxBDA awards, and Heroes Evolutions won a TV Guide Digital Video Award for Best TV Show Site.",
     ],
     stat: { value: "Emmy", label: "Outstanding Interactive TV" },
@@ -577,7 +578,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "Brokered a $4.3M linear and digital sponsor integration for Deal or No Deal and led the digital experience.",
     body: [
-      "I brokered and led a 10-week, $4.3M interactive sponsor integration for Deal or No Deal that ran across the broadcast, the show's website and its second-screen experience, then led execution of the digital side so the brand's message worked in each place.",
+      "I brokered and led a 10-week, $4.3M interactive sponsor integration for Deal or No Deal, the largest to date for NBC.com. It ran across the broadcast, the show's website and its second-screen experience, and I led execution of the digital side so the brand's message worked in each place.",
       "The show's second-screen play continued with the Lucky Case Game, which let viewers play along at home while the episode aired. I also led the digital experience for Minute to Win It.",
     ],
     stat: { value: "$4.3M", label: "sponsor integration" },
