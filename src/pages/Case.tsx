@@ -223,8 +223,10 @@ const Case = () => {
 
       {study.technical && (
         <Section dark>
-          <Label>Under the hood</Label>
-          <h2 className="text-2xl sm:text-3xl font-heading font-semibold tracking-tight mb-8">For engineers</h2>
+          <Label>Technical appendix</Label>
+          <h2 className="text-2xl sm:text-3xl font-heading font-semibold tracking-tight mb-8">
+            System design, training and evaluation
+          </h2>
           <div className="overflow-x-auto rounded-lg border border-white/10 mb-10">
             <table className="w-full min-w-[640px] text-sm">
               <thead>
@@ -246,8 +248,8 @@ const Case = () => {
             </table>
           </div>
           <div className="grid gap-4">
-            {study.technical.sections.map((sec, n) => (
-              <details key={sec.title} open={n === 0} className="group min-w-0 rounded-lg border border-white/10 px-5 py-4">
+            {study.technical.sections.map((sec) => (
+              <details key={sec.title} open className="group min-w-0 rounded-lg border border-white/10 px-5 py-4">
                 <summary className="flex cursor-pointer list-none items-center justify-between font-heading font-semibold">
                   {sec.title}
                   <span className="text-white/50 transition-transform group-open:rotate-45">+</span>
