@@ -508,6 +508,23 @@ export const caseStudies: CaseStudy[] = [
     stat: { value: "Live", label: "Olympics, SpaceX, NASA" },
   },
   {
+    slug: "nbc-digital",
+    category: "storytelling",
+    title: "Digital for NBC's biggest shows",
+    org: "NBCUniversal",
+    years: "2006 to 2014",
+    role: "Senior Producer and project lead",
+    summary:
+      "Project lead on the digital side of NBC's shows, from Heroes and The Office to Saturday Night Live, running in-house teams and outside vendors from idea to launch.",
+    body: [
+      "As Senior Producer at NBC I was project lead on digital for a long list of shows, including Heroes, Grimm, The Office, 30 Rock, Saturday Night Live, The Biggest Loser, Law & Order: SVU, Deal or No Deal, Minute to Win It and Gemini Division.",
+      "I ran several in-house teams and third-party vendors in parallel, handling budgets, hiring, and contract and rate negotiations. I led brainstorming sessions with show writers and executive producers to find digital ideas and product integrations that could sell, and ran the weekly approvals with legal, sponsors, show executives and studio executives.",
+      "Along the way I led The Office's \"Make Your Own Promo\" contest on YouTube, kept each site in step with sales commitments and changing storylines, and built a new online production process for senior management that made sites faster to produce and maintain.",
+    ],
+    stat: { value: "10+", label: "NBC shows" },
+    related: ["heroes", "nbc-dramas", "original-series", "deal-or-no-deal"],
+  },
+  {
     slug: "heroes",
     category: "storytelling",
     title: "Extending Heroes beyond the TV",
@@ -518,7 +535,7 @@ export const caseStudies: CaseStudy[] = [
       "Lead producer on the Emmy-winning Heroes Digital Experience, weekly graphic novels for four years, and the Heroes exhibits at Comic-Con.",
     body: [
       "Heroes told its story on TV and on the web at the same time. As lead producer for the Heroes online experience I worked with the showrunners, writers and NBC's digital marketing team on webisodes, character backstories and interactive pieces that let fans go deeper than the broadcast.",
-      "I led production of the weekly Heroes graphic novels for four years, working with comic artists and writers to add storylines that weren't in the show. I also produced and ran the Heroes exhibits at Comic-Con.",
+      "I led production of the weekly Heroes graphic novels for four years, working with comic artists and writers to add storylines that weren't in the show. I also produced and ran the Heroes exhibits at Comic-Con from 2007 through 2009, and developed and led Heroes iStory.",
       "The Heroes Digital Experience won the Primetime Emmy for Outstanding Interactive Television Programming at the 61st Primetime Emmy Awards, after a nomination in the same category the year before. Create Your Hero won two PromaxBDA awards, and Heroes Evolutions won a TV Guide Digital Video Award for Best TV Show Site.",
     ],
     stat: { value: "Emmy", label: "Outstanding Interactive TV" },
@@ -560,7 +577,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "Brokered a $4.3M linear and digital sponsor integration for Deal or No Deal and led the digital experience.",
     body: [
-      "I brokered a $4.3M sponsor integration for Deal or No Deal that ran across the broadcast, the show's website and its second-screen experience, then led execution of the digital side so the brand's message worked in each place.",
+      "I brokered and led a 10-week, $4.3M interactive sponsor integration for Deal or No Deal that ran across the broadcast, the show's website and its second-screen experience, then led execution of the digital side so the brand's message worked in each place.",
       "The show's second-screen play continued with the Lucky Case Game, which let viewers play along at home while the episode aired. I also led the digital experience for Minute to Win It.",
     ],
     stat: { value: "$4.3M", label: "sponsor integration" },
@@ -639,6 +656,36 @@ export const caseStudies: CaseStudy[] = [
     links: [{ label: "Grimm: The Essential Guide", href: "http://a.co/bYdklrD" }],
   },
   {
+    slug: "grafica",
+    category: "early",
+    title: "Where it started: CD-ROMs and early websites",
+    org: "Gráfica Interactive",
+    years: "1994 to 1997",
+    role: "Senior Multimedia Developer and Interactive Graphic Designer",
+    summary: "My first role in interactive media, designing and programming CD-ROMs, multimedia presentations and websites.",
+    body: [
+      "I designed and programmed CD-ROM products and built multimedia presentations for the company and its clients.",
+      "I also managed client website production, coordinated freelancers, designed reusable site templates, programmed JavaScript and HTML for a corporate intranet, and ran the Mac, Windows NT and FTP servers behind it.",
+    ],
+    stat: { value: "1994", label: "first CD-ROMs" },
+  },
+  {
+    slug: "interactive-consulting",
+    category: "early",
+    title: "Interactive production for brands, labels and publishers",
+    org: "Independent consultant",
+    years: "1996 onward",
+    role: "Interactive Production Consultant",
+    summary:
+      "Multi-platform and streaming projects for clients including AT&T, Sony, RCA, Panasonic, Pfizer, Lucent Technologies, Columbia University, George magazine, Archie Comics, *NSYNC and the New York Yankees.",
+    body: [
+      "Alongside my staff roles I've produced multi-platform projects for clients and helped them develop interactive and streaming content. That has included directing live webisodes and musical performances streamed live, podcasts and second-screen experiences, served from Unix, Windows and Mac servers.",
+      "The New York Yankees CD-ROM, the early *NSYNC website and the Archie Comics site all came out of this work.",
+    ],
+    stat: { value: "11", label: "named clients" },
+    related: ["yankees-yearbook", "nsync"],
+  },
+  {
     slug: "on2",
     category: "early",
     title: "Interactive production in the early days of online video",
@@ -650,7 +697,7 @@ export const caseStudies: CaseStudy[] = [
     body: [
       "On2 Technologies was a digital video technology company, acquired by Google in 2010, years after my time there. I joined in 1997, when putting video and interactive media online was still new territory.",
       "I managed interactive production, coordinating front-end development and video production teams alongside outside technology partners. I set up the digital production process and delivered interactive experiences for clients.",
-      "I was the main client contact for information architecture and UX requirements, turning business goals into specifications the teams could build.",
+      "I was the main client contact for information architecture and UX requirements, turning business goals into specifications the teams could build, and the creative and technical advisor across web and video, with about a dozen projects running at a time.",
       "Working across those technical disciplines gave me an early foundation in digital video and interactive delivery, which I drew on later when I led product for streaming services.",
     ],
     stat: { value: "1997", label: "video goes online" },
@@ -695,7 +742,7 @@ export const caseStudies: CaseStudy[] = [
       "Directing digital production for Citigroup's Global Marketing and Internal Communications: more than 40 ongoing projects for customers and employees.",
     body: [
       "At Citigroup I directed enterprise digital production and interactive communications for Global Marketing and Internal Communications. I set up product lifecycle processes and coordinated multidisciplinary delivery teams.",
-      "The portfolio ran to more than 40 ongoing digital projects, spanning consumer-facing experiences and internal communications tools.",
+      "The portfolio ran to more than 40 ongoing digital projects, spanning consumer-facing experiences and internal communications tools, including online campaigns and the intranet for Citibank North America. Production covered the front end and back-end integration, ecommerce and rewards, video, Flash and Shockwave, user profiling, and data mining and reporting.",
       "I guided internal stakeholders through product requirements and user experience decisions, and managed the outside technology partners who helped build the work.",
     ],
     stat: { value: "40+", label: "ongoing projects" },
@@ -822,6 +869,13 @@ export const caseStudies: CaseStudy[] = [
 // Home page "Where I've been" timeline.
 export const eras: { year: string; place: string; title: string; text: string; slug?: string }[] = [
   {
+    year: "1994",
+    place: "Gráfica Interactive",
+    title: "CD-ROMs first",
+    text: "Designing and programming CD-ROMs, multimedia presentations and early websites.",
+    slug: "grafica",
+  },
+  {
     year: "1997",
     place: "Early web",
     title: "Fan sites and CD-ROMs",
@@ -881,13 +935,17 @@ export const recognition = [
     detail:
       "Winner, Outstanding Interactive Television Programming, Heroes Digital Experience, 61st Primetime Emmy Awards. Nominee, Outstanding Interactive Television Programming, Heroes Digital Experience, 60th Primetime Emmy Awards.",
   },
-  { award: "Webby Awards", detail: "Winner, Video/Drama Series and Individual Episode, The Recruit. Winner, Mobile/Entertainment." },
   {
-    award: "PromaxBDA Awards",
+    award: "Webby Awards",
+    detail:
+      "13th Annual: Winner, Video/Drama Series and Individual Episode, Heroes: The Recruit. 12th Annual: Winner, Mobile/Entertainment, Heroes; Honoree, Websites/Television, Heroes Evolutions.",
+  },
+  {
+    award: "PromaxBDA Promotion & Marketing Awards",
     detail:
       "Winner, Interactive Applications Promotions, Create Your Hero. Winner, Consumer Tie-In Promotion Campaign Using Integrated Media, Create Your Hero.",
   },
-  { award: "TV Guide Digital Video Award", detail: "Best TV Show Site, Heroes Evolutions." },
+  { award: "TV Guide Online Video Awards", detail: "Winner, Best TV Show Site, Heroes Evolutions." },
 ];
 
 export const service = [
@@ -899,7 +957,7 @@ export const service = [
 export const press = [
   { label: "Forbes", href: "https://bit.ly/2Cv63ZT" },
   { label: "Deadline", href: "https://bit.ly/2O2zNPb" },
-  { label: "Wired", href: "https://www.wired.com/2003/08/its-a-flawed-world-after-all/" },
+  { label: "Wired interview", href: "https://www.wired.com/2003/08/its-a-flawed-world-after-all/" },
   { label: "TV Guide", href: "https://www.tvguide.com/news/heroes-new-ways-13108/" },
   { label: "Heroes Wiki interview", href: "https://heroeswiki.ddns.net/wiki/Interview:Joe_Tolerico" },
   { label: "IMDb", href: "http://www.imdb.com/name/nm3089230" },
@@ -917,4 +975,17 @@ export const chronology = [
   { years: "2006 to 2014", org: "NBCUniversal", role: "Senior Producer, Entertainment Marketing & Digital" },
   { years: "2002 to 2006", org: "Citigroup", role: "Director, Interactive Production" },
   { years: "1997 to 2002", org: "On2 Technologies", role: "Senior Interactive Production Manager" },
+  { years: "1996 onward", org: "Independent", role: "Interactive Production Consultant" },
+  { years: "1994 to 1997", org: "Gráfica Interactive", role: "Senior Multimedia Developer and Interactive Graphic Designer" },
+];
+
+// Hands-on toolkit for the About page.
+export const toolkit: { group: string; items: string }[] = [
+  { group: "Today", items: "Python, PyTorch, Stable-Baselines3, MuJoCo, Gymnasium, React, TypeScript, Claude Code, Copilot Studio" },
+  { group: "Languages", items: "JavaScript, HTML5, CSS, PHP, SQL and MySQL, Java and JSP, ASP, AJAX, XML, ActionScript, Lingo, AppleScript, VBScript, SMIL" },
+  { group: "Design and 3D", items: "Photoshop, Illustrator, Fireworks, Painter, Acrobat, Maya, 3ds Max, Rhinoceros, Poser" },
+  { group: "Multimedia", items: "Flash, Director, Silverlight" },
+  { group: "Video and audio", items: "Final Cut Pro, Premiere, After Effects, Avid, Media Cleaner, QuickTime Pro, Windows Media encoding, Sound Forge, SoundEdit 16" },
+  { group: "Hosting and data", items: "Akamai, Amazon EC2, Apache Tomcat, MySQL, Oracle" },
+  { group: "Systems", items: "macOS, Windows, Linux" },
 ];

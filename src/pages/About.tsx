@@ -1,7 +1,7 @@
 import PageNav from "@/components/PageNav";
 import Footer from "@/components/Footer";
 import { Section, Label, Heading, Body, primaryButton } from "@/components/Section";
-import { chronology, recognition, service, press, CONTACT_EMAIL } from "@/data/content";
+import { chronology, recognition, service, press, toolkit, CONTACT_EMAIL } from "@/data/content";
 
 const About = () => (
   <main className="min-h-screen">
@@ -91,6 +91,15 @@ const About = () => (
     </Section>
 
     <Section dark>
+      <Label>Toolkit</Label>
+      <dl className="divide-y divide-white/10 border-y border-white/10 mb-12">
+        {toolkit.map((t) => (
+          <div key={t.group} className="grid gap-1 sm:grid-cols-[12rem_1fr] sm:gap-6 py-4 text-sm">
+            <dt className="font-heading font-semibold">{t.group}</dt>
+            <dd className="text-white/70">{t.items}</dd>
+          </div>
+        ))}
+      </dl>
       <a href={`mailto:${CONTACT_EMAIL}`} className={primaryButton}>
         Get in touch
       </a>
