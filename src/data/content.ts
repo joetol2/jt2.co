@@ -21,7 +21,6 @@ export type Category =
   | "sites"
   | "early"
   | "research"
-  | "experiments"
   | "prototypes";
 
 // Work sub-nav tabs, in order. Each case study belongs to one.
@@ -46,8 +45,7 @@ export type Media = (
 // Lab sub-nav tabs that hold case studies. The Interactive tab holds the
 // canvas pieces in projects.ts instead.
 export const labCategories: { slug: Category; label: string; blurb: string }[] = [
-  { slug: "research", label: "Research", blurb: "Longer projects and papers." },
-  { slug: "experiments", label: "Experiments", blurb: "Smaller studies: a question, a setup and what happened." },
+  { slug: "research", label: "Research", blurb: "Research projects, papers and experiments." },
   { slug: "prototypes", label: "Prototypes", blurb: "Small products built to test an idea." },
 ];
 

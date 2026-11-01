@@ -16,8 +16,8 @@ const interactive = {
   blurb: "Experiments in motion, physics and play, drawn frame by frame. Open one to play with it.",
 };
 
-// Tab order: Research, Experiments, Interactive, Prototypes.
-const tabs = [labCategories[0], labCategories[1], interactive, labCategories[2]];
+// Tab order: Research, Interactive, Prototypes.
+const tabs = [labCategories[0], interactive, labCategories[1]];
 
 const Lab = () => {
   const { category } = useParams();

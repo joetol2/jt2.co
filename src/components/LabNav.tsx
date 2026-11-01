@@ -3,7 +3,6 @@ import SubNav from "@/components/SubNav";
 const tabs = [
   { to: "/lab", label: "All" },
   { to: "/lab/category/research", label: "Research" },
-  { to: "/lab/category/experiments", label: "Experiments" },
   { to: "/lab/category/interactive", label: "Interactive" },
   { to: "/lab/category/prototypes", label: "Prototypes" },
 ];
