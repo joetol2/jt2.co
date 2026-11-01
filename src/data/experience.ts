@@ -14,6 +14,8 @@ export type Role = {
   summary?: string;
   bullets: string[];
   lists?: { label: string; items: string[] }[];
+  // Quantified results Joe has approved for publication.
+  results?: string[];
   // Detail Joe has promised but not sent yet; rendered as a visible placeholder.
   placeholders?: string[];
 };
@@ -48,6 +50,13 @@ export const employers: Employer[] = [
         years: "2025 to now",
         summary:
           "Leads AI product strategy for an agency moving from bespoke creative services to scalable, technology-enabled products across ad tech, AI and analytics.",
+        results: [
+          "Architected the EverIQ closed-loop media operating model with agentic AI, targeting 35% faster optimization cycles and a 14% ROAS lift.",
+          "AI Readiness Audit: 8 client audits delivered in pilot and early rollout, with a 45% shorter audit cycle.",
+          "Reduced rework 35% and accelerated decisions 30% by productizing advanced advertising capabilities and creative testing, with charters, SOWs and phase gates.",
+          "Defined SaaS commercialization paths for audit and automation modules in three tiers, reaching 54% pilot-to-paid conversion.",
+          "Shortlisted 15 tools and integrated 6 in the AI and analytics operating model.",
+        ],
         bullets: [
           "Named agency AI lead; sets which AI capabilities to build, how they reach the people making the work, and which become client services.",
           "Product lead on an AI readiness audit for a global consumer brand that became completed paid work; productized the audit and its activation model.",
@@ -123,6 +132,14 @@ export const employers: Employer[] = [
         years: "2021 to 2023",
         summary:
           "Led product strategy and execution across the foundational services behind global direct-to-consumer streaming, working with platform engineering, product management, design, data science and commercial teams across web, mobile, connected TV and international markets.",
+        results: [
+          "Reduced ad latency 29% and improved ad render reliability by 8 points through advanced ad product development and ad-load modeling.",
+          "Drove a 14% CTR lift and an 11% increase in session depth with recommendations, personalization and search improvements.",
+          "Improved video startup time (TTP90) 27%, raised playback success 6 points and cut rebuffering 28%.",
+          "Modernized metadata and internationalization architecture, unlocking 11 new markets with a 26% content coverage gain.",
+          "Delivered +9% revenue per session through balanced ad-load policy, placement density and subscription offer-flow experiments.",
+          "Increased delivery velocity 25% and cut cross-team thrash 30% through product governance and prioritization.",
+        ],
         bullets: [
           "Directed product vision, roadmap and prioritization for core platform services: content management, metadata, internationalization, recommendations, personalization, search, advertising technology, video playback and internal APIs.",
           "Led cross-functional workstreams connecting reusable platform capabilities to consumer-facing experiences, keeping functionality consistent across devices and markets.",
@@ -159,6 +176,12 @@ export const employers: Employer[] = [
         years: "2019 to 2021",
         summary:
           "Directed product innovation and experimentation across Discovery's direct-to-consumer ecosystem, at the intersection of product, content and marketing, including the launch strategy for international content.",
+        results: [
+          "Launched a rapid experimentation program: 28 proofs of concept, 39% promoted to the roadmap, with 41% faster cycles.",
+          "Testing guardrails (power and MDE standards, SRM checks, A/A tests, pre-registered hypotheses) reduced false positives 32%.",
+          "Design-thinking practices raised stakeholder agreement from 54% to 67% and cut POC briefing time 22%.",
+          "Cross-functional pilots raised engagement 13% and lowered churn 9% over the first 120 days.",
+        ],
         bullets: [
           "Developed product innovation strategies aligned with consumer needs, business growth and emerging opportunities across streaming platforms.",
           "Established product discovery and experimentation practices using customer research, A/B testing, prototypes and measurable hypotheses.",
@@ -188,6 +211,12 @@ export const employers: Employer[] = [
         years: "2017 to 2019",
         summary:
           "The creation, operational integration, launch and long-term roadmap of new ad products driving linear and non-linear business goals across the FNG footprint.",
+        results: [
+          "FNGENIUS live interactive gaming reached three weekly activations and earned press coverage.",
+          "Business cases, pro formas and KPI frameworks cut commercialization decisions from 13 weeks to 8 (38% faster).",
+          "Aligned the ad tech feature set with sales strategy and measurement, improving sell-through 11% and reducing campaign fallout 18%.",
+          "Process improvements yielded 23% opex efficiency; vendor and workstream management reduced escalations 31%.",
+        ],
         bullets: [
           "Developed and operationalized eight advanced interactive engagement ad products across linear, CTV and digital, which generated $25M in incremental revenue in their first 18 months.",
           "Product Owner and lead product manager for FNGENIUS, a weekly live interactive game show delivered to FOX fans through direct-to-consumer apps.",
@@ -201,6 +230,12 @@ export const employers: Employer[] = [
         title: "Senior Product Manager, Video Products & Platforms",
         team: "FOX Broadcasting, FBC Digital",
         years: "2015 to 2017",
+        results: [
+          "Architected the video pipeline and MPX workflows, cutting time-to-publish 42% and publish failures 38% (from about 3.1% to 1.9%).",
+          "Lifted sell-through 12% on priority tentpoles through packaging, inventory eligibility and forecasting improvements.",
+          "Vendor governance with standardized rate cards and acceptance gates reduced cost overruns 21%.",
+          "SEO and content-ops enhancements improved discoverability 23%.",
+        ],
         bullets: [
           "MPX account and workflow architect; built digital video ingest, transcoding and publishing processes and systems.",
           "Ran product lifecycles for web, mobile apps, web series and sponsorship integrations for FOX's direct-to-consumer digital initiatives, including FOX NOW.",
@@ -246,6 +281,10 @@ export const employers: Employer[] = [
         years: "2006 to 2014",
         summary:
           "Principal digital contact for show producers and project lead across NBC's entertainment slate, covering product lifecycle and roadmaps, interactive production, second-screen experiences, webisodes, graphic novels, games, social platforms, eBooks, monetization and analytics.",
+        results: [
+          "Drove the Deal or No Deal Lucky Case Game to $6MM+ net per airing, three times weekly, building a repeatable second-screen revenue engine.",
+          "Built cross-platform sponsorship and content operations that improved throughput 28%.",
+        ],
         bullets: [
           "Led the creative conception and end-to-end production of the Emmy-winning Heroes Digital Experience.",
           "Brokered and led a 10-week, $4.3M linear and non-linear sponsor integration for Deal or No Deal, the largest to date for NBC.com.",
@@ -302,6 +341,11 @@ export const employers: Employer[] = [
         title: "Director, Interactive Production",
         team: "Global Marketing & Internal Communications",
         years: "2002 to 2006",
+        results: [
+          "Standardized digital production, reducing cycle time 28% and defects 33% (handoff errors per release from 1.8 to 1.2).",
+          "Kanban cadence and intake SLAs improved on-time delivery 19%.",
+          "Campaign reporting and weekly executive dashboards increased decision speed 24%.",
+        ],
         bullets: [
           "Directed enterprise digital production and interactive communications, establishing product lifecycle processes and coordinating multidisciplinary delivery teams.",
           "Oversaw more than 40 ongoing digital projects on daily, weekly and bi-weekly schedules, spanning consumer-facing experiences and internal communications.",
@@ -327,6 +371,10 @@ export const employers: Employer[] = [
         title: "Senior Interactive Production Manager",
         team: "On2 Technologies (acquired by Google in 2010, after Joe's tenure)",
         years: "1997 to 2002",
+        results: [
+          "Cut delivery times 26% through process innovation, and built a reusable component library that reduced development effort 21%.",
+          "Coordinated multidisciplinary vendor teams across 7 concurrent builds with standardized QA and acceptance gates.",
+        ],
         bullets: [
           "Managed interactive production during an early period of online multimedia, coordinating front-end, back-end and video production teams with outside technology partners.",
           "Established digital production processes, quality standards and delivery of client-facing interactive experiences, with about a dozen projects running at a time.",
@@ -373,11 +421,9 @@ export const leadership = [
 
 // Held for Joe's confirmation. Kept so nothing is lost; not rendered.
 export const held = [
-  { source: "Resume 23 / KB resume", claim: "Deal or No Deal Lucky Case Game: $6MM+ net per airing, three times weekly" },
   { source: "KB resume", claim: "Built teams that would net the organization multi-billion-dollar deals" },
   { source: "Earlier long-form resume", claim: "Daily management of 23 employees at NBC" },
   { source: "Resume 25", claim: "Team sizes and reporting lines: ~12 with 4 direct reports (agency), 7 (Hawaii.com), 12 matrixed (WBD), 8 PMs (FOX), 4 (FOX video), 17 teams (NBC), 12 (Citigroup), 11 (On2)" },
-  { source: "Resume 25", claim: "Performance percentages, e.g. 29% ad latency, 14% CTR, 11 new markets, 28 POCs, 23% opex, 42% time-to-publish, 28% throughput" },
   { source: "Resume 25", claim: "Hawaii.com VP, Product (consulting) engagement, 2024 to 2025" },
   { source: "Television Academy service", claim: "Exact years: 2010 to 2016 or 2017 (co-chair), 2010 to 2014 or 2011 to 2017 (executive committee)" },
 ];

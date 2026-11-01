@@ -17,6 +17,19 @@ const RoleBlock = ({ role }: { role: Role }) => (
         </li>
       ))}
     </ul>
+    {role.results && (
+      <div className="mt-5">
+        <p className="text-xs font-heading tracking-[0.2em] uppercase text-muted-foreground mb-2 print:text-black">Results</p>
+        <ul className="space-y-2 text-sm sm:text-base text-white/85 leading-relaxed print:text-black print:list-disc print:pl-5">
+          {role.results.map((r) => (
+            <li key={r.slice(0, 40)} className="flex items-start gap-3 print:list-item">
+              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-amber-200/70 shrink-0 print:hidden" />
+              {r}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
     {role.lists?.map((l) => (
       <div key={l.label} className="mt-4">
         <p className="text-xs font-heading tracking-[0.2em] uppercase text-muted-foreground mb-2 print:text-black">{l.label}</p>

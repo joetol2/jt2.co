@@ -690,7 +690,7 @@ export const caseStudies: CaseStudy[] = [
       "Brokered a $4.3M linear and digital sponsor integration for Deal or No Deal and led the digital experience.",
     body: [
       "I brokered and led a 10-week, $4.3M interactive sponsor integration for Deal or No Deal, the largest to date for NBC.com. It ran across the broadcast, the show's website and its second-screen experience, and I led execution of the digital side so the brand's message worked in each place.",
-      "The show's second-screen play continued with the Lucky Case Game, which let viewers play along at home while the episode aired. I also led the digital experience for Minute to Win It.",
+      "The show's second-screen play continued with the Lucky Case Game, which let viewers play along at home while the episode aired and reached $6MM+ net per airing, three times a week. I also led the digital experience for Minute to Win It.",
     ],
     stat: { value: "$4.3M", label: "sponsor integration" },
     videos: [{ kind: "vimeo", id: "81668410", title: "Deal or No Deal digital experience" }],
