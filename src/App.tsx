@@ -24,6 +24,7 @@ const App = () => (
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/work" element={<Work />} />
+      <Route path="/work/early-web" element={<Navigate to="/work/category/early" replace />} />
       <Route path="/work/:slug" element={<Case />} />
       <Route path="/work/videos" element={<Videos />} />
       <Route path="/work/category/:category" element={<Work />} />

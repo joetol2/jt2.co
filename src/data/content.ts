@@ -519,7 +519,7 @@ export const caseStudies: CaseStudy[] = [
     body: [
       "Heroes told its story on TV and on the web at the same time. As lead producer for the Heroes online experience I worked with the showrunners, writers and NBC's digital marketing team on webisodes, character backstories and interactive pieces that let fans go deeper than the broadcast.",
       "I led production of the weekly Heroes graphic novels for four years, working with comic artists and writers to add storylines that weren't in the show. I also produced and ran the Heroes exhibits at Comic-Con.",
-      "The Heroes Digital Experience won the Primetime Emmy for Outstanding Interactive Television Programming. Related work won PromaxBDA awards for Create Your Hero and a TV Guide Digital Video Award for Heroes Evolutions.",
+      "The Heroes Digital Experience won the Primetime Emmy for Outstanding Interactive Television Programming at the 61st Primetime Emmy Awards, after a nomination in the same category the year before. Create Your Hero won two PromaxBDA awards, and Heroes Evolutions won a TV Guide Digital Video Award for Best TV Show Site.",
     ],
     stat: { value: "Emmy", label: "Outstanding Interactive TV" },
     videos: [{ kind: "vimeo", id: "80954249", title: "Heroes Digital Experience" }],
@@ -639,19 +639,66 @@ export const caseStudies: CaseStudy[] = [
     links: [{ label: "Grimm: The Essential Guide", href: "http://a.co/bYdklrD" }],
   },
   {
-    slug: "early-web",
+    slug: "on2",
     category: "early",
-    title: "When it was called new media",
-    org: "On2 Technologies, Citigroup and direct clients",
-    years: "1997 to 2006",
-    role: "Senior Producer; Senior Interactive Production Manager; Director, Interactive Production",
+    title: "Interactive production in the early days of online video",
+    org: "On2 Technologies",
+    years: "1997 to 2002",
+    role: "Senior Interactive Production Manager",
     summary:
-      "Early fan websites and an interactive yearbook on CD-ROM, then a portfolio of more than 40 ongoing digital projects at Citigroup.",
+      "Managing interactive production at a digital video technology company during the early years of online multimedia, and laying the groundwork for a career in streaming.",
     body: [
-      "I started out building interactive work when few people knew what it should look like. Working directly with the band's management, I was Senior Producer on an early *NSYNC website and multimedia catalog. For the New York Yankees I helped design and build an interactive yearbook on CD-ROM with video, audio and player profiles.",
-      "At On2 Technologies I was Senior Interactive Production Manager, running production and client UX. At Citigroup I was Director of Interactive Production for Global Marketing & Internal Communications, with a portfolio of more than 40 ongoing projects across ecommerce, rewards and data experiences.",
+      "On2 Technologies was a digital video technology company, acquired by Google in 2010, years after my time there. I joined in 1997, when putting video and interactive media online was still new territory.",
+      "I managed interactive production, coordinating front-end development and video production teams alongside outside technology partners. I set up the digital production process and delivered interactive experiences for clients.",
+      "I was the main client contact for information architecture and UX requirements, turning business goals into specifications the teams could build.",
+      "Working across those technical disciplines gave me an early foundation in digital video and interactive delivery, which I drew on later when I led product for streaming services.",
     ],
-    stat: { value: "1997", label: "first website" },
+    stat: { value: "1997", label: "video goes online" },
+  },
+  {
+    slug: "yankees-yearbook",
+    category: "early",
+    title: "The Yankees' interactive yearbook",
+    org: "New York Yankees",
+    years: "1998",
+    role: "Senior Producer",
+    summary: "An interactive yearbook on CD-ROM, with video, audio commentary and player profiles, made directly with the Yankees.",
+    body: [
+      "I was Senior Producer on the New York Yankees Interactive Yearbook, a CD-ROM made directly with the team, and helped design and build it.",
+      "Fans could explore the club's history era by era, from Babe Ruth and Joe DiMaggio to Derek Jeter, through video clips, audio commentary, detailed player profiles and statistics, and a look back at the Yankees' World Series wins.",
+      "The disc is preserved today in the Internet Archive's vintage software collection.",
+    ],
+    stat: { value: "CD-ROM", label: "1998" },
+    links: [{ label: "The disc at the Internet Archive", href: "https://archive.org/details/new-york-yankees-interactive-yearbook" }],
+  },
+  {
+    slug: "nsync",
+    category: "early",
+    title: "An early website for *NSYNC",
+    org: "*NSYNC",
+    years: "Late 1990s",
+    role: "Senior Producer",
+    summary: "An early band website and multimedia catalog, made directly with the band's management as *NSYNC's fan base took off.",
+    body: [
+      "Working directly with the band's manager, I was Senior Producer on an early *NSYNC website and multimedia catalog, as the band's following grew after their 1997 debut album.",
+    ],
+    stat: { value: "*NSYNC", label: "late 1990s" },
+  },
+  {
+    slug: "citigroup",
+    category: "early",
+    title: "Digital production at enterprise scale",
+    org: "Citigroup",
+    years: "2002 to 2006",
+    role: "Director, Interactive Production",
+    summary:
+      "Directing digital production for Citigroup's Global Marketing and Internal Communications: more than 40 ongoing projects for customers and employees.",
+    body: [
+      "At Citigroup I directed enterprise digital production and interactive communications for Global Marketing and Internal Communications. I set up product lifecycle processes and coordinated multidisciplinary delivery teams.",
+      "The portfolio ran to more than 40 ongoing digital projects, spanning consumer-facing experiences and internal communications tools.",
+      "I guided internal stakeholders through product requirements and user experience decisions, and managed the outside technology partners who helped build the work.",
+    ],
+    stat: { value: "40+", label: "ongoing projects" },
   },
   {
     slug: "your-light-guide",
@@ -779,14 +826,14 @@ export const eras: { year: string; place: string; title: string; text: string; s
     place: "Early web",
     title: "Fan sites and CD-ROMs",
     text: "An early *NSYNC website and multimedia catalog, a Yankees interactive yearbook, and interactive production at On2 Technologies.",
-    slug: "early-web",
+    slug: "on2",
   },
   {
     year: "2002",
     place: "Citigroup",
     title: "Digital at enterprise scale",
     text: "Director of Interactive Production, with more than 40 ongoing projects across ecommerce, rewards and data experiences.",
-    slug: "early-web",
+    slug: "citigroup",
   },
   {
     year: "2006",
@@ -829,16 +876,24 @@ export const eras: { year: string; place: string; title: string; text: string; s
 export const featured = ["agency-ai", "sim2real", "streaming-platform", "fox-ad-products", "live-events", "heroes"];
 
 export const recognition = [
-  { award: "Primetime Emmy Award", detail: "Outstanding Interactive Television Programming, Heroes Digital Experience" },
-  { award: "Webby Awards", detail: "The Recruit: Video Drama series and individual episode. Mobile and entertainment honors" },
-  { award: "PromaxBDA Awards", detail: "Create Your Hero: interactive applications promotion and integrated campaign" },
-  { award: "TV Guide Digital Video Award", detail: "Heroes Evolutions: Best TV Show Site" },
+  {
+    award: "Primetime Emmy Awards",
+    detail:
+      "Winner, Outstanding Interactive Television Programming, Heroes Digital Experience, 61st Primetime Emmy Awards. Nominee, Outstanding Interactive Television Programming, Heroes Digital Experience, 60th Primetime Emmy Awards.",
+  },
+  { award: "Webby Awards", detail: "Winner, Video/Drama Series and Individual Episode, The Recruit. Winner, Mobile/Entertainment." },
+  {
+    award: "PromaxBDA Awards",
+    detail:
+      "Winner, Interactive Applications Promotions, Create Your Hero. Winner, Consumer Tie-In Promotion Campaign Using Integrated Media, Create Your Hero.",
+  },
+  { award: "TV Guide Digital Video Award", detail: "Best TV Show Site, Heroes Evolutions." },
 ];
 
 export const service = [
-  "New Media Council, Producers Guild of America",
-  "Executive Committee, Interactive Media Peer Group, Television Academy",
-  "Co-Chair, Emmy Awards Working Group, Television Academy",
+  "Council Member, New Media, Producers Guild of America",
+  "Former Co-Chair, Emmy Awards Working Group, Interactive Media Peer Group, Academy of Television Arts & Sciences",
+  "Former Executive Committee Member, Interactive Media Peer Group, Academy of Television Arts & Sciences",
 ];
 
 export const press = [
