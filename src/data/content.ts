@@ -207,7 +207,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "Faster throws",
         text: [
-          "Faster balls broke the policy: it caught 1 in 3. So I used bridge training, mixing earlier throws with harder ones and running 30 simulations in parallel on cloud GPUs. That brought it to 3 out of 3, then 46 catches in a 50-ball evaluation, and a ten-ball run with ten catches.",
+          "Faster balls broke the policy: it caught 1 in 3. So I used bridge training, mixing earlier throws with harder ones and running 30 simulations in parallel on a Lambda Labs cloud instance. That brought it to 3 out of 3, then 46 catches in a 50-ball evaluation, and a ten-ball run with ten catches.",
         ],
         media: [
           { kind: "loop", src: efm("fast-catch.mp4"), poster: efm("fast-catch.jpg"), alt: "Muscle-driven arm with a robotic hand catching fast balls" },
@@ -269,10 +269,13 @@ export const caseStudies: CaseStudy[] = [
           title: "Training",
           rows: [
             ["Algorithm", "PPO (Stable-Baselines3, PyTorch) on Gymnasium environments"],
-            ["Compute", "30 parallel CPU environments, one thread each, on a Lambda cloud instance"],
+            ["Compute", "Lambda Labs cloud instance with 2× NVIDIA A10 GPUs, 30 CPU cores and 222 GB of RAM"],
+            ["Parallelism", "30 parallel environment processes, pinned to one thread each, because the simulation is CPU-bound rather than GPU-bound"],
             ["Warm starts", "Each harder task fine-tunes the previous policy, for example v16 to v17 and v24_fast to v24c"],
             ["Curriculum", "Bridge runs mix earlier throws with faster ones so new skills don't erase old ones"],
             ["Rendering", "Rollouts saved to CSV, then rendered offscreen in MuJoCo at 1280 by 720"],
+            ["Operations", "Long runs managed over SSH and tmux, monitored with btop, Glances and nvitop"],
+            ["Distillation (designed)", "A teacher–student path with the v24d policy as teacher, designed to size tensorized student policies; not yet run"],
           ],
         },
         {
@@ -982,7 +985,11 @@ export const chronology = [
 
 // Hands-on toolkit for the About page.
 export const toolkit: { group: string; items: string }[] = [
-  { group: "Today", items: "Python, PyTorch, Stable-Baselines3, MuJoCo, Gymnasium, React, TypeScript, Claude Code, Copilot Studio" },
+  {
+    group: "Today",
+    items:
+      "Python, PyTorch, Stable-Baselines3 (PPO), MuJoCo, Gymnasium, Lambda Labs cloud GPUs (NVIDIA A10), React, TypeScript, Claude Code, Copilot Studio",
+  },
   { group: "Languages", items: "JavaScript, HTML5, CSS, PHP, SQL and MySQL, Java and JSP, ASP, AJAX, XML, ActionScript, Lingo, AppleScript, VBScript, SMIL" },
   { group: "Design and 3D", items: "Photoshop, Illustrator, Fireworks, Painter, Acrobat, Maya, 3ds Max, Rhinoceros, Poser" },
   { group: "Multimedia", items: "Flash, Director, Silverlight" },
