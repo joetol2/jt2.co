@@ -233,3 +233,16 @@ footer.border-t::before {
   height: 18px;
 }
 .gate-error.visible { opacity: 1; }
+
+/* Print: the Experience page doubles as a resume. */
+@media print {
+  @page { margin: 0.6in; }
+  body { background: white !important; color: black !important; }
+  section, footer { background: transparent !important; border: 0 !important; padding-top: 0.6rem !important; padding-bottom: 0.6rem !important; }
+  section::before, footer::before { display: none !important; }
+  * { color: black !important; opacity: 1 !important; transform: none !important; box-shadow: none !important; }
+  a { text-decoration: none !important; }
+  h1, h2, h3 { break-after: avoid; }
+  li { break-inside: avoid; }
+  html { font-size: 13px; }
+}

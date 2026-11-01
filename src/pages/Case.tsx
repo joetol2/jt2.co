@@ -28,7 +28,7 @@ const Case = () => {
   return (
     <main className="min-h-screen">
       <PageNav />
-      {lab ? <LabNav current={`/lab/category/${study.category}`} /> : <WorkNav current={`/work/category/${study.category}`} />}
+      {lab ? <LabNav current={`/lab/category/${study.category}`} /> : <WorkNav current={study.employer ? `/work/at/${study.employer}` : undefined} />}
       <div className="px-8 sm:px-12 lg:px-20 pt-16 pb-12 max-w-6xl mx-auto">
         <p className="animate-fade-up text-sm font-heading tracking-[0.3em] uppercase text-white/50 mb-6">
           {study.org} · {study.years}
@@ -193,6 +193,13 @@ const Case = () => {
                   <figure key={k}>
                     {m.kind === "image" ? (
                       <img src={m.src} alt={m.alt} loading="lazy" className="w-full rounded-lg border border-white/10 bg-white" />
+                    ) : m.kind === "placeholder" ? (
+                      <div className="flex aspect-[16/10] items-center justify-center rounded-lg border border-dashed border-amber-200/40 bg-white/5 p-6 text-center">
+                        <p className="text-sm text-amber-100/80">
+                          <span className="block text-xs font-heading tracking-[0.2em] uppercase mb-2">Coming soon</span>
+                          {m.label}
+                        </p>
+                      </div>
                     ) : m.kind === "loop" ? (
                       <video
                         src={m.src}

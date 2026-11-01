@@ -1,7 +1,8 @@
 import PageNav from "@/components/PageNav";
 import Footer from "@/components/Footer";
 import { Section, Label, Heading, Body, primaryButton } from "@/components/Section";
-import { chronology, recognition, service, press, toolkit, CONTACT_EMAIL } from "@/data/content";
+import { Link } from "react-router-dom";
+import { recognition, service, press, toolkit, CONTACT_EMAIL } from "@/data/content";
 
 const About = () => (
   <main className="min-h-screen">
@@ -38,15 +39,13 @@ const About = () => (
 
     <Section dark>
       <Label>Career</Label>
-      <div className="divide-y divide-white/10 border-y border-white/10">
-        {chronology.map((c) => (
-          <div key={c.years + c.role} className="grid gap-1 sm:grid-cols-[10rem_1fr_1.4fr] sm:gap-6 py-4 text-sm">
-            <span className="font-heading text-white/50">{c.years}</span>
-            <span className="font-heading font-semibold">{c.org}</span>
-            <span className="text-white/70">{c.role}</span>
-          </div>
-        ))}
-      </div>
+      <p className="text-base text-white/75 leading-relaxed max-w-3xl mb-8">
+        Every role from Gráfica Interactive in 1994 to AI product strategy today, with the scope, results and projects for each, is on
+        the Experience page, and it prints as a resume.
+      </p>
+      <Link to="/experience" className={primaryButton}>
+        See my experience
+      </Link>
     </Section>
 
     <Section>

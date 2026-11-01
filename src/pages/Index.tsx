@@ -7,8 +7,7 @@ import ProjectCard from "@/components/ProjectCard";
 import VideoPlayer from "@/components/VideoPlayer";
 import { vimeoPoster } from "@/components/VideoEmbed";
 import { Section, Label, Heading, Body, primaryButton, secondaryButton } from "@/components/Section";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { caseStudies, eras, featured, recognition, service, CONTACT_EMAIL } from "@/data/content";
+import { caseStudies, featured, CONTACT_EMAIL } from "@/data/content";
 import { projects } from "@/data/projects";
 
 const watch = [
@@ -19,38 +18,14 @@ const watch = [
 
 const heroStars = { ...DEFAULTS, starCount: 360, speed: 1.4 };
 
-const Era = ({ era }: { era: (typeof eras)[number] }) => {
-  const { ref, isVisible } = useScrollReveal(0.4);
-  return (
-    <div
-      ref={ref}
-      className={`relative grid grid-cols-[5.5rem_1fr] sm:grid-cols-[9rem_1fr] gap-6 py-8 transition-all duration-700 ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-      }`}
-    >
-      <p
-        className={`text-3xl sm:text-5xl font-heading font-semibold tracking-tight transition-colors duration-1000 ${
-          isVisible ? "text-white" : "text-white/20"
-        }`}
-      >
-        {era.year}
-      </p>
-      <div className="border-l border-white/15 pl-6">
-        <p className="text-xs font-heading tracking-[0.25em] uppercase text-muted-foreground mb-2">{era.place}</p>
-        <h3 className="text-lg sm:text-xl font-heading font-semibold mb-2">{era.title}</h3>
-        <p className="text-sm sm:text-base text-white/70 leading-relaxed max-w-2xl">{era.text}</p>
-        {era.slug && (
-          <Link
-            to={`/work/${era.slug}`}
-            className="inline-block mt-3 text-xs font-heading tracking-[0.2em] uppercase text-white/50 hover:text-white transition-colors"
-          >
-            The story →
-          </Link>
-        )}
-      </div>
-    </div>
-  );
-};
+const proofs = [
+  { value: "Emmy", label: "Primetime Emmy winner, Outstanding Interactive Television Programming", to: "/work/heroes" },
+  { value: "$25M", label: "from 8 FOX interactive ad products in their first 18 months", to: "/work/fox-ad-products" },
+  { value: "$4.3M", label: "Deal or No Deal sponsorship, the largest to date for NBC.com", to: "/work/deal-or-no-deal" },
+  { value: "3 Olympics", label: "lead digital product owner at NBC and FOX, plus SpaceX and NASA launches", to: "/work/live-events" },
+  { value: "Global", label: "streaming core services for discovery+ and Warner Bros. Discovery", to: "/work/streaming-platform" },
+  { value: "AI lead", label: "AI product strategy at a creative agency, and robotics research in the Lab", to: "/work/agency-ai" },
+];
 
 const Index = () => {
   const selected = featured.map((slug) => caseStudies.find((c) => c.slug === slug)!);
@@ -83,9 +58,9 @@ const Index = () => {
               creative agency.
             </p>
             <div className="animate-fade-up-delay-2 flex flex-wrap gap-4 pointer-events-auto">
-              <a href="#timeline" className={primaryButton}>
+              <Link to="/experience" className={primaryButton}>
                 Where I've been
-              </a>
+              </Link>
               <Link to="/contact" className={secondaryButton}>
                 Work with me
               </Link>
@@ -94,41 +69,31 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="timeline" className="py-20 sm:py-28 border-t border-border scroll-mt-4">
-        <div className="max-w-6xl mx-auto px-8 sm:px-12 lg:px-20">
-          <Label>Where I've been</Label>
-          <Heading>Making new media work since it was called new media</Heading>
-          <div className="max-w-2xl mb-6">
-            <Body>
-              Every few years the medium changes. The job stays the same: take a technology that's new and turn it into
-              something people actually use.
-            </Body>
-          </div>
-          <div>
-            {eras.map((era) => (
-              <Era key={era.year} era={era} />
-            ))}
-            <div className="grid grid-cols-[5.5rem_1fr] sm:grid-cols-[9rem_1fr] gap-6 py-8">
-              <p className="text-3xl sm:text-5xl font-heading font-semibold tracking-tight text-amber-200">Next</p>
-              <div className="border-l border-amber-200/40 pl-6">
-                <p className="text-xs font-heading tracking-[0.25em] uppercase text-amber-200/80 mb-2">Arriving last week</p>
-                <h3 className="text-lg sm:text-xl font-heading font-semibold mb-2">Your product, maybe</h3>
-                <p className="text-sm sm:text-base text-white/70 leading-relaxed max-w-2xl">
-                  I'm open to product and AI leadership roles, and to working with teams on the right project.
-                </p>
-                <Link
-                  to="/contact"
-                  className="inline-block mt-3 text-xs font-heading tracking-[0.2em] uppercase text-amber-200/80 hover:text-amber-100 transition-colors"
-                >
-                  Get in touch →
-                </Link>
-              </div>
-            </div>
-          </div>
+      <section className="border-t border-border" style={{ backgroundColor: "#012b62" }}>
+        <div className="max-w-6xl mx-auto px-8 sm:px-12 lg:px-20 py-14 grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+          {proofs.map((p) => (
+            <Link key={p.value} to={p.to} className="group block">
+              <p className="text-3xl sm:text-4xl font-heading font-semibold tracking-tight group-hover:text-white/80 transition-colors">{p.value}</p>
+              <p className="mt-2 text-sm text-white/65 leading-snug">{p.label}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
       <Section>
+        <Label>Featured work</Label>
+        <Heading>Projects I'm proudest of</Heading>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+          {selected.map((s) => (
+            <CaseCard key={s.slug} study={s} />
+          ))}
+        </div>
+        <Link to="/work" className={`${secondaryButton} mt-10`}>
+          All work
+        </Link>
+      </Section>
+
+      <Section dark>
         <Label>Watch</Label>
         <Heading>See the work</Heading>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
@@ -138,19 +103,6 @@ const Index = () => {
         </div>
         <Link to="/work/videos" className={`${secondaryButton} mt-10`}>
           All videos
-        </Link>
-      </Section>
-
-      <Section dark>
-        <Label>Selected work</Label>
-        <Heading>Recent and favorite projects</Heading>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-          {selected.map((s) => (
-            <CaseCard key={s.slug} study={s} />
-          ))}
-        </div>
-        <Link to="/work" className={`${secondaryButton} mt-10`}>
-          All work
         </Link>
       </Section>
 
@@ -171,21 +123,6 @@ const Index = () => {
         <Link to="/lab" className={`${secondaryButton} mt-10`}>
           Everything in the lab
         </Link>
-      </Section>
-
-      <Section dark>
-        <Label>Recognition</Label>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {recognition.map(({ award, detail }) => (
-            <div key={award} className="border border-white/10 rounded-lg p-6">
-              <h3 className="text-base font-heading font-semibold text-foreground mb-2">{award}</h3>
-              <p className="text-sm text-white/60 leading-relaxed">{detail}</p>
-            </div>
-          ))}
-        </div>
-        <p className="mt-10 text-sm text-white/60 leading-relaxed max-w-3xl">
-          Industry service: {service.join(". ")}.
-        </p>
       </Section>
 
       <Section>

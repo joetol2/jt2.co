@@ -5,14 +5,15 @@ Joe Tolerico's personal site. Layout and styles are shared with the
 
 ## Pages
 
-- `/` home: hero, career timeline, selected work, lab, recognition
-- `/work` and `/work/:slug`: case studies
-- `/work/category/:category`: one category (sub-nav tabs set in `categories` in `src/data/content.ts`)
-- `/work/videos`: every Vimeo video on the site, grouped by case study
-- `/lab`: the canvas pieces (`/lab/starfield`, `/lab/physics`, `/lab/muscle-arm`, `/lab/blocks`, `/lab/swarm`), sites and tools, and older pages for review
+- `/` home: hero, proof bar, featured work, videos, lab, contact
+- `/experience`: career of record by employer; prints as a resume
+- `/work`: featured work, then a section per employer
+- `/work/at/:employer`: employer hub with results, projects and roles
+- `/work/:slug`: case studies; `/work/videos`: every Vimeo video
+- `/lab`: research, interactive canvas pieces and prototypes
 - `/about`, `/contact`
 
-Site copy lives in `src/data/content.ts`; canvas pieces are listed in
+Roles and employers live in `src/data/experience.ts` (with claims held for confirmation in `held`); case study copy lives in `src/data/content.ts`; canvas pieces are listed in
 `src/data/projects.ts`. Robot frames in `public/media/` come from the sim2real
 videos.
 

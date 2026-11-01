@@ -34,12 +34,14 @@ export const categories: { slug: Category; label: string; blurb: string }[] = [
 ];
 
 import { tensorPaper, type PaperBlock } from "@/data/papers/tensor";
+import type { EmployerSlug } from "@/data/experience";
 
 // Visuals inside a chapter: a still image, or a short silent loop.
 export type Media = (
   | { kind: "image"; src: string; alt: string }
   | { kind: "loop"; src: string; poster: string; alt: string }
   | { kind: "arm" }
+  | { kind: "placeholder"; label: string }
 ) & { caption?: string };
 
 // Lab sub-nav tabs that hold case studies. The Interactive tab holds the
@@ -58,6 +60,8 @@ export const caseHref = (study: { slug: string; category: Category }) =>
 export type CaseStudy = {
   slug: string;
   category: Category;
+  // Employer whose Work hub lists this project (Work projects only).
+  employer?: EmployerSlug;
   title: string;
   // Optional line under the title on the case study page.
   subtitle?: string;
@@ -91,16 +95,15 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "agency-ai",
     category: "ai",
+    employer: "agency",
     title: "Bringing AI into a creative agency",
     org: "Creative agency",
     years: "2025 to now",
     role: "AI Product Strategy & Advanced Advertising Initiatives",
     summary:
-      "Agency AI lead, turning generative AI experiments into tools people use and work clients pay for.",
+      "Agency AI lead, turning generative AI experiments into tools the creative teams use and services clients pay for.",
     body: [
-      "I lead AI product strategy for a creative agency. Day to day that means deciding which AI capabilities are worth building, getting them into the hands of the people who make the work, and packaging the best of them into services clients will pay for.",
-      "I was product lead on an AI readiness audit for a global consumer brand that became completed paid work. Inside the agency I specified a creative search assistant in Teams, built with Copilot Studio, that turns a plain-language request into a search of the internal asset library, and I built and tested a meeting-notes agent for the PMO. I co-own the agency's creative AI production process built around Adobe Firefly, and I set up a reference hub for AI law and policy that the team uses. I've also run practical Copilot training for staff.",
-      "I'm also designing the next step: an agentic creative workflow that tracks every job and asset with shared identifiers and keeps a person approving each stage.",
+      "The agency is moving from bespoke creative services to scalable, technology-enabled products across ad tech, AI and analytics. I lead its AI product strategy: deciding which capabilities are worth building, getting them into the hands of the people who make the work, and packaging the best into services clients will pay for.",
     ],
     highlights: [
       "Product lead on completed paid AI audit work for a global consumer brand",
@@ -109,10 +112,55 @@ export const caseStudies: CaseStudy[] = [
       "Meeting-notes agent built and tested in Teams",
     ],
     stat: { value: "Agency", label: "AI lead" },
+    chapters: [
+      {
+        title: "AI readiness audits",
+        text: [
+          "I was product lead on an AI readiness audit for a global consumer brand that became completed paid work. Building on earlier work by colleagues, I productized the audit: a scoring framework, the activation model that turns findings into next steps, and the packaging that makes it repeatable for other clients.",
+        ],
+        media: [{ kind: "placeholder", label: "Sample AI readiness audit, client names removed" }],
+      },
+      {
+        title: "Creative search in Teams",
+        text: [
+          "Creative teams lose time hunting for assets. I specified a search assistant in Microsoft Teams, built with Copilot Studio, that interprets a plain-language request and turns it into a search of the agency's internal asset library. Internal search is live, with a stock-library connection in progress.",
+        ],
+        media: [{ kind: "placeholder", label: "Screenshot of the creative search assistant" }],
+      },
+      {
+        title: "Agents and internal tools",
+        text: [
+          "I built, published and tested a meeting-notes agent for the PMO in Teams, and built a timekeeping app prototype on Power Apps and Dataverse with Planner integration and save-and-submit flows. I also reworked the agency's Smartsheet licensing to match seats to actual use.",
+        ],
+        media: [{ kind: "placeholder", label: "Screenshots of the meeting-notes agent and timekeeping app" }],
+      },
+      {
+        title: "Creative AI production",
+        text: [
+          "I co-own the agency's creative AI production process built around Adobe Firefly, covering implementation, licensing economics and coordination across creative, legal and account teams.",
+          "I'm also designing the next step: an agentic creative workflow that tracks every job and asset with shared identifiers, keeps an approval ledger, and puts a person's sign-off at each stage.",
+        ],
+        media: [{ kind: "placeholder", label: "Diagram of the agentic creative workflow" }],
+      },
+      {
+        title: "Policy, governance and enablement",
+        text: [
+          "AI only scales in an agency if people trust it. I created an AI law and policy reference hub that tracks U.S. rules on AI-generated advertising and updates itself weekly with Claude Code, translated a client's data restrictions into IT requirements for Copilot, and run practical Copilot training for staff.",
+        ],
+      },
+      {
+        title: "Advanced advertising concepts",
+        text: [
+          "For client planning I shaped a portfolio of 31 advanced-advertising concepts, 12 of them AI-based, and evaluated AI vendors and tools against the agency's operating model.",
+        ],
+      },
+    ],
+    related: ["ai-policy-hub"],
   },
   {
     slug: "sim2real",
     category: "ai",
+    employer: "independent",
     title: "Robots that learn in simulation",
     org: "Robotics, including Sim2Real",
     years: "2024 to now",
@@ -344,22 +392,82 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "streaming-platform",
     category: "streaming",
-    title: "The services behind a global streaming service",
+    employer: "wbd",
+    title: "Product for a global streaming platform",
     org: "Discovery / Warner Bros. Discovery",
     years: "2019 to 2023",
-    role: "Director, Product Growth & Innovation; Senior Director, Product Core Services",
+    role: "Senior Director, Product, Core Services; Director, Product, Growth & Innovation",
     summary:
-      "Product leadership for the shared platform services that streaming experiences run on, plus the strategy for growing them internationally.",
+      "Product leadership for the core services behind discovery+ and Warner Bros. Discovery's global streaming platform, and for growth and innovation across the direct-to-consumer business.",
     body: [
-      "I joined Discovery to run Product Growth & Innovation, a small team built for product discovery, rapid experimentation and A/B testing. We also shaped the launch strategy for international content.",
-      "As Senior Director of Product Core Services I led product work streams across the global platform: CMS and editorial tools, metadata and internationalization, recommendations and personalization, search, player features and video quality, and ad tech architecture. The job was translating between engineering, data science and the business so those systems could support many products and markets at once.",
-      "I was Product Owner and lead on the Core Customer Experience strategy, the Payments & Tax strategy and its monthly business reviews, and the product planning for expansion into Canada with a French and English experience.",
+      "Every streaming experience rests on services viewers never see: the systems that store and describe content, decide what to recommend, find it in search, play it smoothly, show ads and work in every market. As Senior Director of Product, Core Services, I led product for those services across web, mobile, connected TV and international markets, working with platform engineering, product management, design, data science and commercial teams.",
+      "Before that I ran Product Growth & Innovation, a small, fast team for product discovery, experimentation and the launch strategy for international content.",
+    ],
+    highlights: [
+      "Core Customer Experience strategy (Product Owner and lead)",
+      "Payments & Tax strategy and monthly business reviews (Product Owner and lead)",
+      "Canada expansion planning in French and English (Product Owner and lead)",
+      "Product Leadership Team member; Executive Fast Track and Mentorship Program",
     ],
     stat: { value: "Global", label: "core services" },
+    chapters: [
+      {
+        title: "The core services",
+        text: [
+          "I directed product vision, roadmap and prioritization for content management and editorial tools, metadata and internationalization, recommendations and personalization, search, advertising technology, video playback and internal APIs.",
+          "The job was connecting reusable platform capabilities to the experiences viewers see, so features worked the same across devices and markets, and translating between engineering, data science and the business so many products could build on the same foundation.",
+        ],
+        media: [{ kind: "placeholder", label: "Product screenshots and architecture overview" }],
+      },
+      {
+        title: "Advertising and monetization",
+        text: [
+          "I directed advanced advertising product requirements and ad-load modeling, balancing ad revenue against playback quality and the viewing experience, and managed integrations with ad-tech partners including Brightline and Innovid.",
+          "With business and product marketing I worked on monetization more broadly, including advertising strategy and experiments with the subscription offer flow.",
+        ],
+      },
+      {
+        title: "Helping viewers find what to watch",
+        text: [
+          "I partnered with machine-learning and engineering teams on recommendations, personalization and search to improve content discovery, and with connected-TV platforms including Roku and Apple on universal search feeds that send viewers straight to the right show.",
+        ],
+      },
+      {
+        title: "Playback that just works",
+        text: ["I advanced video-player and streaming-performance work on startup time, playback reliability and buffering, the moments where viewers decide whether a service feels good."],
+      },
+      {
+        title: "Subscriptions and payments",
+        text: [
+          "As Product Owner and lead for the Payments & Tax strategy and its monthly business reviews, I worked with subscription commerce teams on payment-failure communications and retries, renewals, account and billing touchpoints, local payment methods and platform-specific purchasing.",
+        ],
+      },
+      {
+        title: "Going global",
+        text: [
+          "I shaped international streaming experiences, balancing common global capabilities with regional requirements, localization and platform constraints across APAC, Canada, EMEA and LATAM, and led the product planning for Canada with a French and English experience.",
+          "I was the product authority for compliance in metadata and content discovery, including CCPA, COPPA, FCC rules and accessibility standards.",
+        ],
+      },
+      {
+        title: "Growth and innovation",
+        text: [
+          "From 2019 to 2021 I ran Product Growth & Innovation: product discovery and experimentation with customer research, A/B testing, prototypes and measurable hypotheses; KPI frameworks for engagement, adoption and retention; and design-thinking practices across product, content and marketing. I took concepts from discovery through proof of concept to roadmap decisions with senior executives, and was Product Owner and lead for the Core Customer Experience strategy.",
+        ],
+      },
+      {
+        title: "Teams and governance",
+        text: [
+          "I set up product prioritization and governance across dependent product and engineering teams, guided user acceptance testing, measured impact with subscriber-based metrics, and managed development budgets against MSAs and SOWs.",
+          "I led and mentored product managers, designers, data scientists and engineers, and recruited product talent from companies including SpaceX, Apple, Uber and Amazon. I was a member of the Product Leadership Team and was selected for the Executive Fast Track and Mentorship Program.",
+        ],
+      },
+    ],
   },
   {
     slug: "fox-ad-products",
     category: "advertising",
+    employer: "fox",
     title: "Advanced ad products at FOX",
     org: "FOX",
     years: "2017 to 2019",
@@ -368,9 +476,9 @@ export const caseStudies: CaseStudy[] = [
       "Eight interactive ad products across linear, connected TV and digital that generated $25M in their first 18 months.",
     body: [
       "At Fox Networks Group I ran advanced advertising product management: the creation, launch and roadmap of new ad products that worked across linear TV, connected TV and digital. I built the business cases, pro forma models and KPI frameworks, and managed product managers alongside third-party vendors.",
-      "We developed and operationalized eight advanced interactive engagement ad products, which generated $25M in incremental revenue in their first 18 months. The pages below show the products themselves: ad units for FOX and FX, sponsored formats, branded bumpers and FNGENIUS, a live game show inside FOX's apps.",
+      "We developed and operationalized eight advanced interactive engagement ad products, which generated $25M in incremental revenue in their first 18 months. The pages below show the products themselves: the interactive ad formats, FNGENIUS, a live game show inside FOX's apps, and the FOX NOW video work.",
     ],
-    related: ["fngenius", "fox-fx-ad-units", "sponsored-formats", "branded-bumpers", "fox-now"],
+    related: ["fngenius", "fox-ad-formats", "fox-now"],
     stat: { value: "$25M", label: "first 18 months" },
     videos: [{ kind: "vimeo", id: "216764413", title: "Advanced ad products sizzle" }],
     reel: [
@@ -388,6 +496,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "fngenius",
     category: "advertising",
+    employer: "fox",
     title: "FNGENIUS: a live game show inside the TV app",
     org: "FOX",
     years: "2017 to 2019",
@@ -406,22 +515,24 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    slug: "fox-fx-ad-units",
+    slug: "fox-ad-formats",
     category: "advertising",
-    title: "Interactive ad units for FOX and FX",
+    employer: "fox",
+    title: "Interactive ad formats for FOX and FX",
     org: "FOX",
     years: "2017 to 2019",
     role: "Director, Advanced Advertising Product Management",
     summary:
-      "Choice cards, sponsored collections and spots that let viewers trade one interactive ad for a commercial-free episode.",
+      "The ad products in action: choice cards and interactive units for FX and FOX, sponsored streams and live-event breaks, and branded bumpers.",
     body: [
-      "These units ran with FX and FOX programming across FX NOW, Roku and linear TV. They include true[X] choice cards and menus that let viewers choose how they see ads, a Trident sponsored collection, Roku placements for It's Always Sunny in Philadelphia and Archer, and spots for The Strain and The Americans.",
+      "These are the formats behind the advanced ad products business. Interactive units ran with FX and FOX programming across FX NOW, Roku and linear TV, including true[X] choice cards and menus that let viewers choose how they see ads, a Trident sponsored collection, Roku placements for It's Always Sunny in Philadelphia and Archer, and spots for The Strain and The Americans that offered a commercial-free episode.",
+      "Sponsored formats put a brand alongside the content instead of interrupting it: a sponsored stream of The Orville presented by Buick, a Samsung exposure profile, and sponsored ad breaks for live events on FOX Sports GO. Three- to five-second branded bumpers and an ad mnemonic carried a sponsor's brand in and out of the programming.",
     ],
-    stat: { value: "10", label: "ad units" },
+    stat: { value: "18", label: "formats on video" },
     videos: [{ kind: "vimeo", id: "218024087", title: "FX Originals ad model" }],
     reel: [
       {
-        title: "The ad units",
+        title: "Interactive ad units",
         videos: [
           { id: "216764489", title: "FX NOW true[X] choice card: Taboo" },
           { id: "216764725", title: "true[X] menu experience" },
@@ -434,46 +545,18 @@ export const caseStudies: CaseStudy[] = [
           { id: "218085944", title: "The Americans, theme and voiceover" },
         ],
       },
-    ],
-  },
-  {
-    slug: "sponsored-formats",
-    category: "advertising",
-    title: "Sponsored formats for streams and live events",
-    org: "FOX",
-    years: "2017 to 2019",
-    role: "Director, Advanced Advertising Product Management",
-    summary: "Formats that put a brand alongside the content instead of interrupting it.",
-    body: [
-      "A sponsored stream of The Orville presented by Buick, a Samsung exposure profile, and sponsored ad breaks for live events on FOX Sports GO.",
-    ],
-    stat: { value: "Sponsored", label: "streams and live events" },
-    videos: [{ kind: "vimeo", id: "259221307", title: "Sponsored stream: The Orville with Buick" }],
-    reel: [
       {
-        title: "More formats",
+        title: "Sponsored formats",
         videos: [
+          { id: "259221307", title: "Sponsored stream: The Orville with Buick" },
           { id: "259221339", title: "Exposure profile: Samsung" },
           { id: "259221392", title: "Live event sponsored ad break, FOX Sports GO" },
         ],
       },
-    ],
-  },
-  {
-    slug: "branded-bumpers",
-    category: "advertising",
-    title: "Branded bumpers",
-    org: "FOX",
-    years: "2017 to 2019",
-    role: "Director, Advanced Advertising Product Management",
-    summary: "Three- to five-second branded bumpers and an ad mnemonic from the advanced ad products toolkit.",
-    body: ["Short animated pieces that carry a sponsor's brand in and out of the programming."],
-    stat: { value: "5 sec", label: "bumpers" },
-    videos: [{ kind: "vimeo", id: "259221351", title: "3D bumper" }],
-    reel: [
       {
-        title: "More bumpers",
+        title: "Branded bumpers",
         videos: [
+          { id: "259221351", title: "3D bumper" },
           { id: "259221709", title: "Ad mnemonic bumper" },
           { id: "259221718", title: "Rotating title bumper" },
           { id: "259221731", title: "Rotating stacked bumper" },
@@ -485,6 +568,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "fox-now",
     category: "advertising",
+    employer: "fox",
     title: "FOX NOW and the FNG design system",
     org: "FOX",
     years: "2014 to 2019",
@@ -492,6 +576,7 @@ export const caseStudies: CaseStudy[] = [
     summary: "FOX NOW on Apple TV, the FOX Networks Group design system, and the video publishing behind them.",
     body: [
       "Before advanced advertising I ran social media products and then video products at FOX Broadcasting, including the MPX video publishing workflows that got episodes and clips into FOX's apps.",
+      "As Senior Product Manager for social media products I was Adobe Social infrastructure architect and led digital initiatives for Empire, Gotham, The Simpsons, Family Guy, American Idol, The Last Man on Earth, MasterChef, Sleepy Hollow and Stand Up to Cancer, among others. On video products I architected the MPX account and workflows and ran product lifecycles for web, mobile apps, web series and sponsorship integrations.",
       "These demos show FOX NOW on Apple TV and the FOX Networks Group design system.",
     ],
     stat: { value: "FOX NOW", label: "Apple TV" },
@@ -501,21 +586,39 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "live-events",
     category: "streaming",
+    employer: "nbcu",
     title: "Olympics and rocket launches, streamed live",
     org: "NBCUniversal and FOX",
     years: "Multiple events",
-    role: "Product Owner",
+    role: "Lead digital product owner; product lead",
     summary:
-      "Product Owner for streaming coverage of multiple Olympic Games, and for SpaceX and NASA launch coverage.",
+      "Lead digital product owner for two Olympic Games at NBC and one at FOX, and product lead for SpaceX and NASA launch coverage.",
     body: [
       "Live events are where streaming products get tested hardest. Everyone shows up at the same moment and there are no second takes.",
-      "Through NBCUniversal and FOX I was Product Owner for streaming coverage of multiple Olympic Games. I was also Product Owner for SpaceX and NASA launch coverage.",
     ],
-    stat: { value: "Live", label: "Olympics, SpaceX, NASA" },
+    stat: { value: "3", label: "Olympic Games" },
+    chapters: [
+      {
+        title: "Two Olympic Games at NBC",
+        text: ["Lead digital product owner for NBC's digital coverage of two Olympic Games, including the Winter Olympics."],
+        media: [{ kind: "placeholder", label: "Which Games, what the product covered, scale and results" }],
+      },
+      {
+        title: "An Olympic Games at FOX",
+        text: ["Lead digital product owner for an Olympic Games at FOX."],
+        media: [{ kind: "placeholder", label: "Which Games, what the product covered, scale and results" }],
+      },
+      {
+        title: "SpaceX and NASA launches",
+        text: ["Product lead for SpaceX and NASA launch coverage."],
+        media: [{ kind: "placeholder", label: "Which missions, the employer, the product and its audience" }],
+      },
+    ],
   },
   {
     slug: "nbc-digital",
     category: "storytelling",
+    employer: "nbcu",
     title: "Digital for NBC's biggest shows",
     org: "NBCUniversal",
     years: "2006 to 2014",
@@ -523,17 +626,18 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "Project lead on the digital side of NBC's shows, from Heroes and The Office to Saturday Night Live, running in-house teams and outside vendors from idea to launch.",
     body: [
-      "As Senior Producer at NBC I was project lead on digital for a long list of shows, including Heroes, Grimm, The Office, 30 Rock, Saturday Night Live, The Biggest Loser, Law & Order: SVU, Deal or No Deal, Minute to Win It and Gemini Division.",
+      "As Senior Producer at NBC I was project lead on digital for a long list of shows, including Heroes, the Winter Olympics, Grimm, Saturday Night Live, The Office, 30 Rock, Community, The Biggest Loser, Law & Order: SVU, Deal or No Deal, Minute to Win It, Gemini Division, the NAACP Image Awards, Stand Up to Cancer, Comic-Con, the NBC Awards Screening Room, Dracula and Get Out Alive with Bear Grylls.",
       "I ran several in-house teams and third-party vendors in parallel, handling budgets, hiring, and contract and rate negotiations. I led brainstorming sessions with show writers and executive producers to find digital ideas and product integrations that could sell, and ran the weekly approvals with legal, sponsors, show executives and studio executives.",
       "I was responsible for NBC's first fan site deal, which brought 18.9 million unique visitors to NBC in its first six weeks, and led NBC's first second-screen experience.",
       "Along the way I led The Office's \"Make Your Own Promo\" contest on YouTube, kept each site in step with sales commitments and changing storylines, and built a new online production process for senior management that made sites faster to produce and maintain.",
     ],
-    stat: { value: "10+", label: "NBC shows" },
-    related: ["heroes", "nbc-dramas", "original-series", "deal-or-no-deal"],
+    stat: { value: "18+", label: "NBC shows and events" },
+    related: ["heroes", "nbc-dramas", "original-series", "deal-or-no-deal", "live-events"],
   },
   {
     slug: "heroes",
     category: "storytelling",
+    employer: "nbcu",
     title: "Extending Heroes beyond the TV",
     org: "NBCUniversal",
     years: "2006 to 2014",
@@ -577,6 +681,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "deal-or-no-deal",
     category: "advertising",
+    employer: "nbcu",
     title: "A $4.3M sponsorship, on air and online",
     org: "NBCUniversal",
     years: "2006 to 2014",
@@ -594,6 +699,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "nbc-dramas",
     category: "storytelling",
+    employer: "nbcu",
     title: "Digital worlds for Grimm and Kings",
     org: "NBCUniversal",
     years: "2006 to 2014",
@@ -622,6 +728,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "original-series",
     category: "storytelling",
+    employer: "nbcu",
     title: "Original series made for the web",
     org: "NBCUniversal",
     years: "2006 to 2014",
@@ -665,6 +772,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "grafica",
     category: "early",
+    employer: "early",
     title: "Where it started: CD-ROMs and early websites",
     org: "Gráfica Interactive",
     years: "1994 to 1997",
@@ -679,6 +787,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "interactive-consulting",
     category: "early",
+    employer: "early",
     title: "Interactive production for brands, labels and publishers",
     org: "Independent consultant",
     years: "1996 onward",
@@ -690,11 +799,12 @@ export const caseStudies: CaseStudy[] = [
       "The New York Yankees CD-ROM, the early *NSYNC website and the Archie Comics site all came out of this work.",
     ],
     stat: { value: "11", label: "named clients" },
-    related: ["yankees-yearbook", "nsync"],
+    related: ["early-web-cd-rom"],
   },
   {
     slug: "on2",
     category: "early",
+    employer: "early",
     title: "Interactive production in the early days of online video",
     org: "On2 Technologies",
     years: "1997 to 2002",
@@ -710,37 +820,47 @@ export const caseStudies: CaseStudy[] = [
     stat: { value: "1997", label: "video goes online" },
   },
   {
-    slug: "yankees-yearbook",
+    slug: "early-web-cd-rom",
     category: "early",
-    title: "The Yankees' interactive yearbook",
-    org: "New York Yankees",
-    years: "1998",
-    role: "Senior Producer",
-    summary: "An interactive yearbook on CD-ROM, with video, audio commentary and player profiles, made directly with the Yankees.",
+    employer: "early",
+    title: "Early web and CD-ROM: the Yankees, *NSYNC and Archie Comics",
+    org: "Consulting clients",
+    years: "1998 and the late 1990s",
+    role: "Senior Producer; designer and builder",
+    summary:
+      "An interactive yearbook on CD-ROM for the New York Yankees, an early website and multimedia catalog for *NSYNC, and the Archie Comics website, all direct client work.",
     body: [
-      "I was Senior Producer on the New York Yankees Interactive Yearbook, a CD-ROM made directly with the team, and helped design and build it.",
-      "Fans could explore the club's history era by era, from Babe Ruth and Joe DiMaggio to Derek Jeter, through video clips, audio commentary, detailed player profiles and statistics, and a look back at the Yankees' World Series wins.",
-      "The disc is preserved today in the Internet Archive's vintage software collection.",
+      "These projects came out of my consulting practice in the late 1990s, when interactive media meant CD-ROMs and the first fan websites.",
     ],
-    stat: { value: "CD-ROM", label: "1998" },
-    links: [{ label: "The disc at the Internet Archive", href: "https://archive.org/details/new-york-yankees-interactive-yearbook" }],
-  },
-  {
-    slug: "nsync",
-    category: "early",
-    title: "An early website for *NSYNC",
-    org: "*NSYNC",
-    years: "Late 1990s",
-    role: "Senior Producer",
-    summary: "An early band website and multimedia catalog, made directly with the band's management as *NSYNC's fan base took off.",
-    body: [
-      "Working directly with the band's manager, I was Senior Producer on an early *NSYNC website and multimedia catalog, as the band's following grew after their 1997 debut album.",
+    stat: { value: "1998", label: "CD-ROM and web" },
+    chapters: [
+      {
+        title: "The New York Yankees Interactive Yearbook",
+        text: [
+          "I was Senior Producer on the Yankees' interactive yearbook, a CD-ROM made directly with the team, and helped design and build it.",
+          "Fans could explore the club's history era by era, from Babe Ruth and Joe DiMaggio to Derek Jeter, through video clips, audio commentary, detailed player profiles and statistics, and a look back at the Yankees' World Series wins. The disc is preserved today in the Internet Archive's vintage software collection.",
+        ],
+        media: [{ kind: "placeholder", label: "Cover, disc and screens from the 1998 CD-ROM, from the Internet Archive" }],
+      },
+      {
+        title: "*NSYNC",
+        text: [
+          "Working directly with the band's manager, I was Senior Producer on an early *NSYNC website and multimedia catalog, as the band's following grew after their 1997 debut album.",
+        ],
+        media: [{ kind: "placeholder", label: "Screens of the early *NSYNC site" }],
+      },
+      {
+        title: "Archie Comics",
+        text: ["I built the Archie Comics website and everything on it for the company. The archived 1998 site is still viewable on the Wayback Machine."],
+        media: [{ kind: "placeholder", label: "Screens of the 1998 Archie Comics site" }],
+      },
     ],
-    stat: { value: "*NSYNC", label: "late 1990s" },
+    links: [{ label: "The Yankees disc at the Internet Archive", href: "https://archive.org/details/new-york-yankees-interactive-yearbook" }],
   },
   {
     slug: "citigroup",
     category: "early",
+    employer: "citigroup",
     title: "Digital production at enterprise scale",
     org: "Citigroup",
     years: "2002 to 2006",
@@ -757,6 +877,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "your-light-guide",
     category: "sites",
+    employer: "independent",
     title: "A home for a Human Design practice",
     org: "Your Light Guide",
     years: "Client site",
@@ -773,6 +894,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "the-pool-house",
     category: "sites",
+    employer: "independent",
     title: "A gallery site that feels like the gallery",
     org: "The Pool House",
     years: "Client site",
@@ -789,6 +911,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "botanic-garden",
     category: "sites",
+    employer: "independent",
     title: "A botanic garden's digital front door",
     org: "Santa Ynez Valley Botanic Garden",
     years: "Pro bono",
@@ -805,6 +928,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "3rd-space",
     category: "sites",
+    employer: "independent",
     title: "A community venue that runs on free tools",
     org: "3RD SPACE",
     years: "2026",
@@ -839,6 +963,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "ai-policy-hub",
     category: "sites",
+    employer: "agency",
     title: "A living guide to AI advertising law",
     org: "Creative agency",
     years: "2026",
@@ -853,6 +978,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "independent",
     category: "early",
+    employer: "independent",
     title: "Independent projects",
     org: "Independent",
     years: "2023 to now",
@@ -934,7 +1060,7 @@ export const eras: { year: string; place: string; title: string; text: string; s
 ];
 
 // Selected work on the home page, in order.
-export const featured = ["agency-ai", "sim2real", "streaming-platform", "fox-ad-products", "live-events", "heroes"];
+export const featured = ["agency-ai", "streaming-platform", "fox-ad-products", "fngenius", "heroes", "deal-or-no-deal"];
 
 export const recognition = [
   {

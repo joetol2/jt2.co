@@ -4,6 +4,7 @@ import Work from "./pages/Work.tsx";
 import Case from "./pages/Case.tsx";
 import Lab from "./pages/Lab.tsx";
 import Videos from "./pages/Videos.tsx";
+import Experience from "./pages/Experience.tsx";
 import About from "./pages/About.tsx";
 import Contact from "./pages/Contact.tsx";
 import Starfield from "./pages/Starfield.tsx";
@@ -24,7 +25,18 @@ const App = () => (
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/work" element={<Work />} />
-      <Route path="/work/early-web" element={<Navigate to="/work/category/early" replace />} />
+      <Route path="/work/early-web" element={<Navigate to="/work/at/early" replace />} />
+      <Route path="/work/at/:employer" element={<Work />} />
+      <Route path="/experience" element={<Experience />} />
+      {[
+        ["fox-fx-ad-units", "fox-ad-formats"],
+        ["sponsored-formats", "fox-ad-formats"],
+        ["branded-bumpers", "fox-ad-formats"],
+        ["yankees-yearbook", "early-web-cd-rom"],
+        ["nsync", "early-web-cd-rom"],
+      ].map(([from, to]) => (
+        <Route key={from} path={`/work/${from}`} element={<Navigate to={`/work/${to}`} replace />} />
+      ))}
       <Route path="/work/:slug" element={<Case />} />
       <Route path="/work/videos" element={<Videos />} />
       <Route path="/work/category/:category" element={<Work />} />
